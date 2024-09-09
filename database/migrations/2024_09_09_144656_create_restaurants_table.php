@@ -13,12 +13,11 @@ return new class extends Migration
     {
         Schema::create('restaurants', function (Blueprint $table) {
             $table->id();
+
             $table->string('business_name',70);
             $table->string('image_path',255);
             $table->string('address',255)->unique();
-            $table->dateTime('created_at')->nullable()->default(new DateTime());
-            $table->dateTime('updated_at')->nullable()->default(new DateTime());;
-            
+     
             $table->timestamps();
         });
     }
