@@ -12,6 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('restaurants', function (Blueprint $table) {
+
             $table->id();
 
             $table->string('business_name',70);
@@ -19,6 +20,7 @@ return new class extends Migration
             $table->string('address',255)->unique();
      
             $table->timestamps();
+            
         });
     }
     
