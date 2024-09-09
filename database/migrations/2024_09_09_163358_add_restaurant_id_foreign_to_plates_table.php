@@ -17,7 +17,7 @@ return new class extends Migration
             //crea la chiave esterna
             $table->foreign('restaurant_id')
                 ->references('id')
-                ->on('plates')
+                ->on('restaurants')
                 ->nullOnDelete();
         });
     }
