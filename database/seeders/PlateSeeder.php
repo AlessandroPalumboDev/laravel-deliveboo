@@ -42,6 +42,7 @@ class PlateSeeder extends Seeder
                 'cover_image' => 'chickenburger.jpeg',
                 'description' => 'lorem ipsum',
                 'ingredients' => 'pane, hamburger di pollo, salsa caesar',
+                'is_visible' => true,
                 'is_vegetarian' => false,
                 'is_vegan' => false,
                 'is_gluten_free' => false,
@@ -285,17 +286,18 @@ class PlateSeeder extends Seeder
         foreach($plates as $restaurant_plate) {
             $plate = new Plate();
 
-            $plate->plate_name = $restaurant_plate['name'];
-            $plate->plate_price = $restaurant_plate['price'];
-            $plate->plate_image = $restaurant_plate['cover_image'];
-            $plate->plate_description = $restaurant_plate['description'];
-            $plate->plate_ingredients = $restaurant_plate['ingredients'];
-            $plate->plate_visible = $restaurant_plate['is_visible'];
-            $plate->plate_vegetarian = $restaurant_plate['is_vegetarian'];
-            $plate->plate_vegan = $restaurant_plate['is_vegan'];
-            $plate->plate_gluten = $restaurant_plate['is_gluten_free'];
-            $plate->plate_lactose = $restaurant_plate['is_lactose_free'];
-            $plate->plate_spicy = $restaurant_plate['is_spicy'];
+            $plate->restaurant_id = $restaurant_plate['restaurant_id'];
+            $plate->name = $restaurant_plate['name'];
+            $plate->price = $restaurant_plate['price'];
+            $plate->cover_image = $restaurant_plate['cover_image'];
+            $plate->description = $restaurant_plate['description'];
+            $plate->ingredients = $restaurant_plate['ingredients'];
+            $plate->is_visible = $restaurant_plate['is_visible'];
+            $plate->is_vegetarian = $restaurant_plate['is_vegetarian'];
+            $plate->is_vegan = $restaurant_plate['is_vegan'];
+            $plate->is_gluten_free = $restaurant_plate['is_gluten_free'];
+            $plate->is_lactose_free = $restaurant_plate['is_lactose_free'];
+            $plate->is_spicy = $restaurant_plate['is_spicy'];
 
             $plate->save();
         }
