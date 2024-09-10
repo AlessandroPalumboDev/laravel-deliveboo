@@ -13,7 +13,8 @@ return new class extends Migration
     {
         Schema::table('orders', function (Blueprint $table) {
             // Aggiunge la colonna note alla tabella orders
-            $table->text('note')->nullable()->after('order_status');
+            $table->text('note')->nullable()->after('email_address');
+            $table->string('slug', 100)->after('total_price');
         });
     }
 
@@ -24,7 +25,7 @@ return new class extends Migration
     {
         Schema::table('orders', function (Blueprint $table) {
             // Rimuove la colonna note
-            $table->dropColumn('note');
+            $table->dropColumn(['note', 'slug']);
         });
     }
 };
