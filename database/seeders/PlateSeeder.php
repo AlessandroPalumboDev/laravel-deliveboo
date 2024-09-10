@@ -282,20 +282,20 @@ class PlateSeeder extends Seeder
 
         ];
 
-        foreach($plates as $plate) {
+        foreach($plates as $restaurant_plate) {
             $plate = new Plate();
 
-            $plate->plate_name = $plate['name'];
-            $plate->plate_price = $plate['price'];
-            $plate->plate_image = $plate['cover_image'];
-            $plate->plate_description = $plate['description'];
-            $plate->plate_ingredients = $plate['ingredients'];
-            $plate->plate_visible = $plate['is_visible'];
-            $plate->plate_vegetarian = $plate['is_vegetarian'];
-            $plate->plate_vegan = $plate['is_vegan'];
-            $plate->plate_gluten = $plate['is_gluten_free'];
-            $plate->plate_lactose = $plate['is_lactose_free'];
-            $plate->plate_spicy = $plate['is_spicy'];
+            $plate->plate_name = $restaurant_plate['name'];
+            $plate->plate_price = $restaurant_plate['price'];
+            $plate->plate_image = $restaurant_plate['cover_image'];
+            $plate->plate_description = $restaurant_plate['description'];
+            $plate->plate_ingredients = $restaurant_plate['ingredients'];
+            $plate->plate_visible = $restaurant_plate['is_visible'];
+            $plate->plate_vegetarian = $restaurant_plate['is_vegetarian'];
+            $plate->plate_vegan = $restaurant_plate['is_vegan'];
+            $plate->plate_gluten = $restaurant_plate['is_gluten_free'];
+            $plate->plate_lactose = $restaurant_plate['is_lactose_free'];
+            $plate->plate_spicy = $restaurant_plate['is_spicy'];
 
             $plate->save();
         }

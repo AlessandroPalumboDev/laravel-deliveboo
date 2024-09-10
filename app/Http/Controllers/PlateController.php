@@ -13,7 +13,9 @@ class PlateController extends Controller
      */
     public function index()
     {
-        //
+        $plate = Plate::all();
+
+        return view('plate.index', compact('plates'));
     }
 
     /**

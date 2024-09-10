@@ -7,5 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Plate extends Model
 {
+
+    public function user()
+    {
+        return $this->belongsTo(restaurant::class);
+    }
     use HasFactory;
 }
