@@ -14,7 +14,7 @@ class User extends Authenticatable
 
     public function restaurant()
     {
-        return $this->hasOne(restaurant::class);
+        return $this->hasOne(Restaurant::class);
     }
     /**
      * The attributes that are mass assignable.

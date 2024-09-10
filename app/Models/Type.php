@@ -11,7 +11,7 @@ class Type extends Model
 
     public function restaurants()
 {
-    return $this->belongsToMany(restaurant::class);
+    return $this->belongsToMany(Restaurant::class);
 }
     protected $fillable = ['name', 'description'];
 }
