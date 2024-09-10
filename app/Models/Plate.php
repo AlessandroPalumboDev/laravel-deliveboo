@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Plate extends Model
 {
 
-    public function plate()
+    public function restaurant()
     {
         return $this->belongsTo(restaurant::class);
     }
