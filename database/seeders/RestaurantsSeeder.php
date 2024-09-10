@@ -3,10 +3,13 @@
 namespace Database\Seeders;
 
 use App\Models\restaurant;
+use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Redis\Connections\PredisClusterConnection;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Str;
 
 class RestaurantsSeeder extends Seeder
 {
@@ -18,6 +21,10 @@ class RestaurantsSeeder extends Seeder
         Schema::disableForeignKeyConstraints();
             DB::table('restaurants')->truncate();
 
+            // prendo dal modello user gli id presenti
+
+            $userIds = User::pluck('id')->toArray();
+         
             /**
              * inserimento dati 
              */
@@ -38,17 +45,28 @@ class RestaurantsSeeder extends Seeder
                     'image_path' => 'ilcarbonaro.jpg',
                 ]
             ];
+
+            // controllo se cono presenti utenti
+            if (count($userIds) < count($restaurants)) {
+                $this->command->error('Non ci sono abbastanza utenti per assegnare un ristorante a ciascuno.');
+                return;
+            }
+
             
-            foreach($restaurants as $rest){
+            foreach($restaurants as $index => $rest){
+
             $restaurant= new restaurant();
-            
-    
+        
+
+            $restaurant->user_id=$userIds[$index];
+
             $restaurant->business_name=$rest['name'];
     
             $restaurant->image_path=$rest['image_path'];
     
             $restaurant->address=$rest['address'];
     
+            
             $restaurant->save();
             
             }
