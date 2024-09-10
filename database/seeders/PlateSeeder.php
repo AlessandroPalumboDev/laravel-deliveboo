@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Plate;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -26,7 +27,7 @@ class PlateSeeder extends Seeder
                 'price' => 3,
                 'cover_image' => 'cheeseburger.jpeg',
                 'description' => 'lorem ipsum',
-                'ingredients' => 'pane, hamburger di manzo, cipolla a dadini, formaggio, ketchup, senape e cetriolo',
+                'ingredients' => 'pane, hamburger di manzo, formaggio, cipolla a dadini, senape, cetriolo, ketchup,',
                 'is_visible' => true,
                 'is_vegetarian' => false,
                 'is_vegan' => false,
@@ -63,11 +64,11 @@ class PlateSeeder extends Seeder
             ],
             [
                 'restaurant_id' => 1,
-                'name' => '',
-                'price' => 3,
-                'cover_image' => 'cheeseburger.jpeg',
+                'name' => 'crispy mcbacon',
+                'price' => 6,
+                'cover_image' => 'crispy-mcbacon.jpeg',
                 'description' => 'lorem ipsum',
-                'ingredients' => 'pane, hamburger di manzo, cipolla a dadini, formaggio, ketchup, senape e cetriolo',
+                'ingredients' => 'pane, doppio hamburger di manzo, formaggio, bacon, salsa crispy',
                 'is_visible' => true,
                 'is_vegetarian' => false,
                 'is_vegan' => false,
@@ -77,11 +78,11 @@ class PlateSeeder extends Seeder
             ],
             [
                 'restaurant_id' => 1,
-                'name' => '',
-                'price' => 3,
-                'cover_image' => 'cheeseburger.jpeg',
+                'name' => 'big mac',
+                'price' => 5,
+                'cover_image' => 'big-mac.jpeg',
                 'description' => 'lorem ipsum',
-                'ingredients' => 'pane, hamburger di manzo, cipolla a dadini, formaggio, ketchup, senape e cetriolo',
+                'ingredients' => 'pane, doppio hamburger di manzo, formaggio, cipolla a dadini, insalata, cetriolo, salsa big mac',
                 'is_visible' => true,
                 'is_vegetarian' => false,
                 'is_vegan' => false,
@@ -91,11 +92,11 @@ class PlateSeeder extends Seeder
             ],
             [
                 'restaurant_id' => 1,
-                'name' => '',
-                'price' => 3,
-                'cover_image' => 'cheeseburger.jpeg',
+                'name' => 'mcchicken',
+                'price' => 4,
+                'cover_image' => 'mcchicken.jpeg',
                 'description' => 'lorem ipsum',
-                'ingredients' => 'pane, hamburger di manzo, cipolla a dadini, formaggio, ketchup, senape e cetriolo',
+                'ingredients' => 'pane, petto di pollo, insalata, salsa mcchicken',
                 'is_visible' => true,
                 'is_vegetarian' => false,
                 'is_vegan' => false,
@@ -249,7 +250,6 @@ class PlateSeeder extends Seeder
                 'is_lactose_free' => false,
                 'is_spicy' => true,
             ],
-            
             [
                 'restaurant_id' => 3,
                 'name' => 'puttanesca',
@@ -281,5 +281,25 @@ class PlateSeeder extends Seeder
             // FINE Piatti di pasta
 
         ];
+
+        foreach($plates as $plate) {
+            $plate = new Plate();
+
+            $plate->plate_name = $plate['name'];
+            $plate->plate_price = $plate['price'];
+            $plate->plate_image = $plate['cover_image'];
+            $plate->plate_description = $plate['description'];
+            $plate->plate_ingredients = $plate['ingredients'];
+            $plate->plate_visible = $plate['is_visible'];
+            $plate->plate_vegetarian = $plate['is_vegetarian'];
+            $plate->plate_vegan = $plate['is_vegan'];
+            $plate->plate_gluten = $plate['is_gluten_free'];
+            $plate->plate_lactose = $plate['is_lactose_free'];
+            $plate->plate_spicy = $plate['is_spicy'];
+
+            $plate->save();
+        }
+
+        Schema::enableForeignKeyConstraints();
     }
 }
