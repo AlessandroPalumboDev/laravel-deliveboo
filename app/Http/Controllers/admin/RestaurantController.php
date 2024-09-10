@@ -1,19 +1,20 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\admin;
 
-use App\Models\restaurants;
-use App\Http\Requests\StorerestaurantsRequest;
-use App\Http\Requests\UpdaterestaurantsRequest;
+use App\Http\Controllers\Controller;
+use App\Models\restaurant;
+use Illuminate\Http\Request;
 
-class RestaurantsController extends Controller
+class RestaurantController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        $restaurants= restaurant::all();
+        return view('restaurant.index',compact("restaurants"));
     }
 
     /**
@@ -27,7 +28,7 @@ class RestaurantsController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StorerestaurantsRequest $request)
+    public function store(Request $request)
     {
         //
     }
@@ -35,7 +36,7 @@ class RestaurantsController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(restaurants $restaurants)
+    public function show(string $id)
     {
         //
     }
@@ -43,7 +44,7 @@ class RestaurantsController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(restaurants $restaurants)
+    public function edit(string $id)
     {
         //
     }
@@ -51,7 +52,7 @@ class RestaurantsController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdaterestaurantsRequest $request, restaurants $restaurants)
+    public function update(Request $request, string $id)
     {
         //
     }
@@ -59,7 +60,7 @@ class RestaurantsController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(restaurants $restaurants)
+    public function destroy(string $id)
     {
         //
     }

@@ -11,13 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('types', function (Blueprint $table) {
-            $table->id();
-
-            $table->string('name', 50)->unique();
-            $table->string('description', 255)->nullable();
-            $table->string('image_path');
-            $table->timestamps();
+        Schema::table('users', function (Blueprint $table) {
+            $table->string('surname', 50)->after('name');
+            $table->string('p_iva', 11)->after('surname');
         });
     }
 
@@ -26,6 +22,9 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('types');
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropColumn('surname');
+            $table->dropColumn('p_iva');
+        });
     }
 };
