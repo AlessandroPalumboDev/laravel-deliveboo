@@ -24,6 +24,8 @@ class StoreRestaurantRequest extends FormRequest
         return [
            'business_name' => 'required|string|max:70',
            'image_path' => 'string|max:100',
+           'address' => 'string|max:255',
+           'types'=> 'array',
         ];
     }
 

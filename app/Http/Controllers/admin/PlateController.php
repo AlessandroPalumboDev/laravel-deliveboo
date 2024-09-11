@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Plate;
+use App\Models\Restaurant;
 use Illuminate\Http\Request;
 
 class PlateController extends Controller
@@ -11,8 +13,14 @@ class PlateController extends Controller
      * Display a listing of the resource.
      */
     public function index()
-    {
-        //
+    {   $userId = auth()->id();
+        
+
+        // Recupera solo i ristoranti associati a questo utente
+        $restaurants = Restaurant::where('id', $userId)->get();
+        $plates= Plate::where('restaurant_id', $userId)->get();
+
+        return view('admin.plate.index',compact('plates','restaurants'));
     }
 
     /**

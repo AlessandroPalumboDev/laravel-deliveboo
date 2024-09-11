@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\admin\PlateController;
 use App\Http\Controllers\admin\RestaurantController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProfileController;
@@ -27,5 +28,6 @@ Route::middleware('auth', 'verified')
 Route::get('/',[DashboardController::class,'index'])->name('dashboard');
 
     Route::resource('Restaurants', RestaurantController::class);
+    Route::resource('plates', PlateController::class);
 });
 require __DIR__.'/auth.php';

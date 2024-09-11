@@ -10,7 +10,7 @@ use App\Http\Requests\StoreRestaurantRequest;
 
 use App\Models\Type;
 use App\Models\Plate;
-
+use Illuminate\Support\Facades\Storage;
 
 class RestaurantController extends Controller
 {
@@ -38,23 +38,24 @@ class RestaurantController extends Controller
     public function store(StoreRestaurantRequest $request)
     {
         $data = $request->validated();
-        // dd($data);
+        
 
-        $restaurant = new restaurant();
+        //gestione immagine
+        $img_path = $request->hasFile('img') ? Storage::put('uploads', $data['img']) : 'uploads/default.jpg';
 
+        $restaurant = new Restaurant();
         $restaurant->business_name = $data['business_name'];
-        $restaurant->image_path = $data['image_path'];
-        $restaurant->user_id = auth()->id();;
-
+        $restaurant->address=$data['address'];
+        $restaurant->image_path = $img_path;
+        $restaurant->user_id = auth()->id(); 
+        // Salva il ristorante prima di eseguire il metodo attach
+        
         $restaurant->save();
-
-
-        //  dopo il save perchè prima non esiste ancora l'id del post (non è salvato)
+        // Dopo aver salvato, puoi associare i tipi
         if($request->has('types')){
-
             $restaurant->types()->attach($request->types);
         }
-        // dd($data);
+        
 
         
 
@@ -93,3 +94,29 @@ class RestaurantController extends Controller
         //
     }
 }
+// $data = $request->validated();
+
+
+
+
+
+
+
+// $project = new Project();
+
+// $project->title = $data['title'];
+
+// $project->slug = $data['slug'];
+// $project->img = $img_path;
+// $project->type_id = $data['type_id'];
+
+// $project->save();
+// if ($request->has('technologies')) {
+//     $project->technologies()->attach($request->technologies);
+// } 
+
+
+// //$project->fill($data);
+
+
+// return redirect()->route('admin.Projects.index')->with('message', 'Progetto creato con successo!');
