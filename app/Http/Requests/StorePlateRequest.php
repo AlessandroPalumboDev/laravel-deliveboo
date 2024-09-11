@@ -24,7 +24,7 @@ class StorePlateRequest extends FormRequest
         return [
             'name'=>'string|required',
             'price'=>'string',
-            'cover_image'=>'string',
+            'cover_image' => 'file|image|max:2048', 
             'description'=>'string',
             'ingredients'=>'string', 
             'is_visible'=>'boolean',

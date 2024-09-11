@@ -10,7 +10,8 @@
                         </h1>
                     </div>
                     @include('shared.errors')
-                    <form action="{{ route('admin.plates.store') }}" method="POST">
+                    <form action="{{ route('admin.plates.store') }}" method="POST" enctype="multipart/form-data">
+
                         @csrf
 
                         <div class="card-body">
