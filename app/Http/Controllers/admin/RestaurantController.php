@@ -5,6 +5,9 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use App\Models\restaurant;
 use Illuminate\Http\Request;
+use App\Models\Type;
+use App\Models\Plate;
+
 
 class RestaurantController extends Controller
 {
@@ -13,8 +16,7 @@ class RestaurantController extends Controller
      */
     public function index()
     {
-        $restaurants= restaurant::all();
-        return view('restaurant.index',compact("restaurants"));
+        //
     }
 
     /**
@@ -22,7 +24,9 @@ class RestaurantController extends Controller
      */
     public function create()
     {
-        //
+        $types = Type::all();
+        $plates = Plate::all();
+        return view('admin.restaurants.create', compact('types', 'plates'));
     }
 
     /**
