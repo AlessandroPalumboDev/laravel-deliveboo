@@ -93,12 +93,11 @@
 
         
                         <div class="card-footer">
-                            <a href="{{ route('admin.Restaurants.store') }}">
-                                <button class="btn btn-outline-primary">
-                                    Crea
-                                </button>
-                            </a>
+                            <button class="btn btn-outline-primary" type="submit">
+                                Crea
+                            </button>
                         </div>
+                        
                 </div>
 
 

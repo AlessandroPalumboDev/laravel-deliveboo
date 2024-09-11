@@ -21,7 +21,7 @@ class PlateController extends Controller
         
 
         // Recupera solo i ristoranti associati a questo utente
-        $restaurants = Restaurant::where('id', $userId)->get();
+        $restaurants = Restaurant::where('user_id', $userId)->get();
         $plates= Plate::where('restaurant_id', $userId)->get();
 
         return view('admin.plate.index',compact('plates','restaurants'));
