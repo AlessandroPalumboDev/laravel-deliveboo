@@ -34,7 +34,8 @@
 
 
                                         <div class="d-flex justify-content-around py-2">
-                                            <a href="#" class="btn btn-outline-primary">My Foods</a>
+                                            <a href={{ route('admin.plates.index') }} class="btn btn-outline-primary">My
+                                                Foods</a>
                                             <a href="#" class="btn btn-outline-primary">My Orders</a>
                                         </div>
                                     </div>
@@ -51,8 +52,7 @@
                                     Ristorante</a>
                             </div>
                         @endif
-                        <a href="{{ route('admin.plates.index') }}" class="btn btn-outline-primary">visualizza il tuo
-                            menu</a>
+
 
 
 
