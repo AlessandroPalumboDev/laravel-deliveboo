@@ -9,7 +9,7 @@
                         Crea il tuo ristorante!
                     </h1>
                 </div>
-                <form action="{{ route("admin.Restaurants.store") }}" method="POST">
+                <form action="{{ route('admin.Restaurants.store') }}" method="POST">
                     @csrf
                     
                     <div class="card-body">
@@ -17,6 +17,11 @@
                         <div class="mb-3">
                             <label for="title" class="form-label">Nome Ristorante</label>
                             <input type="text" class="form-control" id="business_name" name="business_name" value="{{ old("business_name") }}" required/>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="title" class="form-label">Immagine Ristorante</label>
+                            <input type="text" class="form-control" id="image_path" name="image_path" value="{{ old("image_path") }}"/>
                         </div>
 
                         {{-- <div class="mb-3">
@@ -44,7 +49,7 @@
 
                     </div>
                     <div class="card-footer">
-                        <a href="{{route('admin.dashboard')}}">
+                        <a href="{{route('admin.Restaurants.store')}}">
                             <button class="btn btn-outline-primary">
                                 Crea
                             </button>
