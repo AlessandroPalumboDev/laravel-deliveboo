@@ -15,14 +15,14 @@
                                         <div class="card">
                                             <div class="card-body">
                                                 <h5 class="card-title">Special title treatment</h5>
-                                                <p class="card-text">{{ $plate }}</p>
-                                                <a href="{{ route('admin.plates.create') }}"
-                                                    class="btn btn-outline-primary">aggiungi
-                                                    un piatto</a>
+                                                <p class="card-text">{{ $plate->name }}</p>
+
                                             </div>
                                         </div>
                                     </div>
                             @endforeach
+                            <a href="{{ route('admin.plates.create') }}" class="btn btn-outline-primary">aggiungi
+                                un piatto</a>
                         @else
                             <div class="alert alert-danger" role="alert">
                                 <h3>

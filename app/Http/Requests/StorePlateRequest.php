@@ -11,7 +11,7 @@ class StorePlateRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,18 @@ class StorePlateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'name'=>'string|required',
+            'price'=>'string',
+            'cover_image'=>'string',
+            'description'=>'string',
+            'ingredients'=>'string', 
+            'is_visible'=>'boolean',
+            'is_vegetarian'=>'boolean',
+            'is_vegan'=>'boolean',
+            'is_gluten_free'=>'boolean',
+            'is_lactose_free'=>'boolean',
+            'is_spicy'=>'boolean',
         ];
     }
 }
+

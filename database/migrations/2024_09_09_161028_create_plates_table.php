@@ -16,9 +16,9 @@ return new class extends Migration
 
             $table->string('name', 50);
             $table->decimal('price', $precision = 4, $scale = 2);
-            $table->string('cover_image', 255);
+            $table->string('cover_image', length: 255);
             $table->text('description')->nullable();
-            $table->text('ingredients', 255);
+            $table->text('ingredients');
             $table->boolean('is_visible');
             $table->boolean('is_vegetarian');
             $table->boolean('is_vegan');
