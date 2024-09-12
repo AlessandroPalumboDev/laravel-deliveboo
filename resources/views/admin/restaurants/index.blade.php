@@ -37,16 +37,49 @@
                                 <div class="card-footer bg-primary  d-flex justify-content-between">
                                     <a href={{ route('admin.Restaurants.edit', $restaurant) }} class="btn btn-outline-light">Modifica</a>
 
-                                    <form action="{{ route('admin.Restaurants.destroy', $restaurant->id) }}"
-                                        method="POST"
-                                        onsubmit="return confirm('Sei sicuro di voler eliminare questo ristorante?');">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" class="btn btn-danger">Elimina</button>
-                                    </form>
+
+
+
+                                    <!-- Button trigger modal -->
+                                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">
+                                        Elimina
+                                    </button>
+
+                                    
                                         
                                 </div>
                             </div>
+
+                            <!-- Modal -->
+                                <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content  border-danger">
+                                            <div class="modal-header  border-danger">
+                                            <h1 class="modal-title fs-5 text-danger" id="deleteModalLabel">Elimina Ristorante</h1>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                            <p>
+                                                Sei proprio sicuro di voler eliminare il tuo ristorante?
+                                                Questa azione sarà irreversibile!
+                                            </p>
+                                            </div>
+                                            <div class="modal-footer  border-danger ">
+
+                                                <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal">Close</button>
+
+                                                <form action="{{ route('admin.Restaurants.destroy', $restaurant->id) }}"
+                                                    method="POST"
+                                                    onsubmit="return confirm('Sei sicuro di voler eliminare questo ristorante?');">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="btn btn-outline-danger">Elimina</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
                         @endforeach
                     @else
                         <div class="alert alert-warning text-center">

@@ -136,7 +136,6 @@ class RestaurantController extends Controller
         return redirect()->route('admin.restaurants.index');
     }
 }
-// $data = $request->validated();
 
 
 
@@ -144,21 +143,3 @@ class RestaurantController extends Controller
 
 
 
-// $project = new Project();
-
-// $project->title = $data['title'];
-
-// $project->slug = $data['slug'];
-// $project->img = $img_path;
-// $project->type_id = $data['type_id'];
-
-// $project->save();
-// if ($request->has('technologies')) {
-//     $project->technologies()->attach($request->technologies);
-// } 
-
-
-// //$project->fill($data);
-
-
-// return redirect()->route('admin.Projects.index')->with('message', 'Progetto creato con successo!');
