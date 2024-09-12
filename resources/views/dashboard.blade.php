@@ -23,6 +23,7 @@
 
                                     <div class="card-body d-flex g-0">
 
+<<<<<<< HEAD
                                         <div class="card-img my-3">
                                             <img src="{{ asset('storage/' . $restaurant->image_path) }}" class="img-fluid rounded-start">
                                         </div> 
@@ -36,6 +37,21 @@
                                                 <p class="card-text">Partita IVA: <strong>{{ $user->p_iva }}</strong> </p>
                                             @endforeach
                                             
+=======
+                                        <div class="d-flex justify-content-around py-2">
+                                            <a href={{ route('admin.plates.index') }} class="btn btn-outline-primary">My
+                                                Foods</a>
+                                            <a href={{ route('admin.Restaurants.edit', $restaurant) }}
+                                                class="btn btn-outline-primary">edit restaurant</a>
+                                            <a href="#" class="btn btn-outline-primary">My Orders</a>
+                                            <form action="{{ route('admin.Restaurants.destroy', $restaurant->id) }}"
+                                                method="POST"
+                                                onsubmit="return confirm('Sei sicuro di voler eliminare questo ristorante?');">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn btn-danger">Elimina</button>
+                                            </form>
+>>>>>>> CRUD-RESTAURANT-sd
                                         </div>
                                     </div>
                                     <div class="card-footer bg-primary  d-flex justify-content-between">
