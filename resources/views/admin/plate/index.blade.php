@@ -5,8 +5,9 @@
         <div class="row">
             <h3 class="mb-4 text-center text-primary">I tuoi piatti</h3>
             
-            <div class="col text-center">
+            <div class="col d-flex justify-content-around">
                 <a href="{{ route('admin.plates.create') }}" class="btn btn-outline-primary   mb-3">Aggiungi un piatto</a>
+                <a href="{{ route('admin.Restaurants.index') }}" class="btn btn-outline-primary   mb-3">Torna al tuo ristorante</a>
             </div>
         </div>
         <div class="row justify-content-center gap-3">

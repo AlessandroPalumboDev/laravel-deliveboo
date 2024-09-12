@@ -6,7 +6,7 @@
 
             @auth
             <div class="text-center">
-                <button class="btn btn-outline-primary btn-lg" type="button"><a class="nav-link" href="{{ route('admin.dashboard') }}">{{ __('Vai al tuo risotrante') }}</a></button>
+                <button class="btn btn-outline-primary btn-lg" type="button"><a class="nav-link" href="{{ route('admin.Restaurants.index') }}">{{ __('Vai al tuo risotrante') }}</a></button>
             </div>
             @endauth
             

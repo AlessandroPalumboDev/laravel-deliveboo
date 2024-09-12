@@ -20,7 +20,15 @@ class RestaurantController extends Controller
      */
     public function index()
     {
-        //
+        $userId = auth()->id();
+        
+
+        // Recupera solo i ristoranti associati a questo utente
+        $restaurants = Restaurant::where('user_id', $userId)->get();
+        $users = User::where('id', $userId)->get();
+
+        // Passa i ristoranti alla vista
+        return view('admin.Restaurants.index', compact("restaurants","users"));
     }
 
     /**
@@ -61,7 +69,7 @@ class RestaurantController extends Controller
 
         
 
-        return redirect()->route('admin.dashboard', $restaurant->id)->with('message', 'Il tuo ristorante:' . $restaurant->business_name . 'è stato creato correttamente');
+        return redirect()->route('admin.restaurants.index', $restaurant->id)->with('message', 'Il tuo ristorante:' . $restaurant->business_name . 'è stato creato correttamente');
     }
 
     /**
@@ -112,7 +120,7 @@ class RestaurantController extends Controller
         
     
    
-    return redirect()->route('admin.dashboard')->with('message'.' - Ristorante aggiornato correttamente');;
+    return redirect()->route('admin.restaurants.index')->with('message'.' - Ristorante aggiornato correttamente');;
     }
     
 
@@ -125,7 +133,7 @@ class RestaurantController extends Controller
 
         $restaurant->delete();
 
-        return redirect()->route('admin.dashboard');
+        return redirect()->route('admin.restaurants.index');
     }
 }
 // $data = $request->validated();
