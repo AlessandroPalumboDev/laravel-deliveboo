@@ -96,16 +96,16 @@
                         </div>
 
                        
+                        </div>
+                        <div class="card-footer bg-primary">
+                            {{-- BOTTONE --}}
+        
+                            <button type="submit" class="btn btn-outline-light">
+                                {{ __('Register') }}
+                            </button>
+        
+                        </div>
                     </form>
-                </div>
-                <div class="card-footer bg-primary">
-                     {{-- BOTTONE --}}
-
-                     <button type="submit" class="btn btn-outline-light">
-                        {{ __('Register') }}
-                    </button>
-
-                </div>
             </div>
         </div>
     </div>

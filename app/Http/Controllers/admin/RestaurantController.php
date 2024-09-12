@@ -41,7 +41,8 @@ class RestaurantController extends Controller
         
 
         //gestione immagine
-        $img_path = $request->hasFile('img') ? Storage::put('uploads', $data['img']) : 'uploads/default.jpg';
+        $img_path = $request->hasFile('image_path') ? Storage::put('uploads', $data['image_path']) : 'uploads/default.jpg';
+
 
         $restaurant = new Restaurant();
         $restaurant->business_name = $data['business_name'];

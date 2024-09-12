@@ -23,11 +23,11 @@
 
                                     <div class="card-body d-flex g-0">
 
-                                        <div class="card-img mb-3">
+                                        <div class="card-img my-3">
                                             <img src="{{ asset('storage/' . $restaurant->image_path) }}" class="img-fluid rounded-start">
                                         </div> 
 
-                                        <div class="col-md-8">
+                                        <div class="col-md-8 my-3 ms-3">
                                             <h4 class="card-title text-primary">{{ $restaurant->business_name }}</h4>
                                             <p class="card-text text-muted">Indirizzo: {{ $restaurant->address }}</p>
                                             @foreach ($users as $user)
