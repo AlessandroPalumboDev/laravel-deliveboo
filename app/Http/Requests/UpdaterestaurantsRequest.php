@@ -22,16 +22,15 @@ class UpdaterestaurantsRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'business_name' => 'required|string|max:70',
-           'image_path' => 'string|max:100',
-           'address' => 'string|max:255',
+            'business_name' => 'nullable|string|max:70',
+           'image_path' => 'file|image|max:2048', 
+           'address' => 'nullable|string|max:255',
            'types'=> 'array',
         ];
     }
     public function messages(): array
     {
         return [
-            'business_name.required' => 'Il nome del ristorante è obbligatorio!',
             'business_name.max' => 'Il nome del ristorante non può contenere più di 70 caratteri',
         ];
     }

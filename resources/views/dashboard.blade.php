@@ -35,21 +35,25 @@
                                                         {{ $user->surname }}</strong></p>
                                                 <p class="card-text">Partita IVA: <strong>{{ $user->p_iva }}</strong> </p>
                                             @endforeach
-                                            <a href={{ route('admin.Restaurants.edit', $restaurant) }}
-                                                class="btn btn-outline-primary">edit restaurant</a>
-                                            <form action="{{ route('admin.Restaurants.destroy', $restaurant->id) }}"
-                                                method="POST"
-                                                onsubmit="return confirm('Sei sicuro di voler eliminare questo ristorante?');">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button type="submit" class="btn btn-danger">Elimina</button>
-                                            </form>
+                                            <div class="d-flex gap-3">
+                                                <a href="{{ route('admin.plates.index') }}" class="btn btn-outline-primary">I miei Piatti</a>
+                                            <a href="#" class="btn btn-outline-primary">I miei Ordini</a>
+                                                
+                                            </div>
                                             
                                         </div>
                                     </div>
                                     <div class="card-footer bg-primary  d-flex justify-content-between">
-                                            <a href="{{ route('admin.plates.index') }}" class="btn btn-outline-light">I miei Piatti</a>
-                                            <a href="#" class="btn btn-outline-light">I miei Ordini</a>
+                                        <a href={{ route('admin.Restaurants.edit', $restaurant) }} class="btn btn-outline-light">Modifica</a>
+    
+                                                <form action="{{ route('admin.Restaurants.destroy', $restaurant->id) }}"
+                                                    method="POST"
+                                                    onsubmit="return confirm('Sei sicuro di voler eliminare questo ristorante?');">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="btn btn-danger">Elimina</button>
+                                                </form>
+                                            
                                     </div>
                                 </div>
                             @endforeach

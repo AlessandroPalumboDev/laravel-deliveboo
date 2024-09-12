@@ -96,8 +96,8 @@ class RestaurantController extends Controller
         $restaurant->address = $data['address'];
     
         // Gestisci il caricamento dell'immagine se presente
-        if ($request->hasFile('cover_image')) {
-            $img_path = $request->file('cover_image')->store('uploads', 'public');
+        if ($request->hasFile('image_path')) {
+            $img_path = $request->file('image_path')->store('uploads', 'public');
             $restaurant->image_path = $img_path;
         }
     
@@ -112,7 +112,7 @@ class RestaurantController extends Controller
         
     
    
-    return redirect()->route('admin.dashboard')->with('message'.' - Post aggiornato correttamente');;
+    return redirect()->route('admin.dashboard')->with('message'.' - Ristorante aggiornato correttamente');;
     }
     
 

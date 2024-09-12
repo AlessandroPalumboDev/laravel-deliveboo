@@ -1,93 +1,74 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
-
-        <div class="header-page  pb-2 mb-4">
-            <div class=" d-flex justify-content-between align-items-center">
-                <h1>Aggiorna post</h1>
-                <div class="d-flex gap-2">
-                    <a href="{{ route('admin.Restaurants.index') }}" class="btn btn-primary" as="button">Torna alla
-                        lista</a>
-                </div>
-            </div>
-
-        </div>
-
-        @include('shared.errors')
-
-
-
-        <form action="{{ route('admin.Restaurants.update', $restaurant->id) }}" method="POST" enctype="multipart/form-data">
+{{-- <form action="{{ route('admin.Restaurants.update', $restaurant->id) }}" method="POST" enctype="multipart/form-data">
             @method('PUT')
-            @csrf
+            @csrf --}}
+            {{-- <a href="{{ route('admin.Restaurants.index') }}" class="btn btn-primary" as="button">Torna al
+                        Ristorante</a> --}}
+                        <div class="container mt-4">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-8">
+                                    <div class="card shadow-lg border-primary rounded">
+                                        <div class="card-header bg-primary text-white text-center">
+                                            <h1 class="mb-0">{{ __('Modifica il tuo ristorante!') }}</h1>
+                                        </div>
+                    
+                                        @include('shared.errors')
+                    
+                                        <form action="{{ route('admin.Restaurants.update', $restaurant->id) }}" method="POST" enctype="multipart/form-data">
+                                            @method('PUT')
+                                            @csrf 
+                                            <div class="card-body">
+                                                {{-- {{dd($restaurant)}} --}}
+                    
+                                                <div class="mb-3">
+                                                    <label for="business_name" class="form-label">Nome Ristorante </label>
+                                                    <input type="text" class="form-control border-primary" id="business_name" name="business_name"
+                                                        value="{{ old('business_name', $restaurant->business_name) }}"  />
+                                                </div>
+                    
+                                                <div class="mb-3">
+                                                    <label for="address" class="form-label">Indirizzo Ristorante </label>
+                                                    <input type="text" class="form-control border-primary" id="address" name="address"
+                                                        value="{{ old('address', $restaurant->address) }}" />
+                                                </div>
+                    
+                                                <div class="mb-3">
+                                                    <label class="form-label">Scegli le tipologie del tuo ristorante: </label>
+                                                    <div>
+                                                        @foreach ($types as $type)
+                                                            <div class="form-check form-check-inline">
 
-            <div class="card-body">
 
-                <div class="mb-3">
-                    <label for="title" class="form-label">Nome Ristorante</label>
-                    <input type="text" class="form-control" id="business_name" name="business_name"
-                        value="{{ old('business_name') }}" required />
-                </div>
-                <div class="mb-3">
-                    <label for="title" class="form-label">indirizzo ristorante</label>
-                    <input type="text" class="form-control" id="address" name="address" value="{{ old('address') }}"
-                        required />
-                </div>
+                                                                    <input class="form-check-input border-primary" type="checkbox" name="types[]" value="{{ $type->id }}"
+                                                                    id="{{ $type->id }}" @if (old('types', $restaurant->types->pluck('id')->toArray()) &&
+                                                                            in_array($type->id, old('types', $restaurant->types->pluck('id')->toArray()))) checked @endif>
+                                                                <label class="form-check-label" for="{{ $type->id }}">{{ $type->name }}</label>
+                                                            </div>
+                                                        @endforeach
+                                                    </div>
+                                                </div>
+                    
+                                                <div class="mb-3">
+                                                    <label for="image_path" class="form-label">Immagine del Ristorante</label>
+                                                    <input class="form-control border-primary" type="file" id="image_path" name="image_path"
+                                                        value="{{ old('image_path', $restaurant->image_path) }}">
+                                                </div>
+                    
+                                            </div>
+                    
+                                            <div class="card-footer bg-primary text-end d-flex justify-content-between">
+                                                <button class="btn btn-outline-light" type="submit">
+                                                    Modifica
+                                                </button>
+                                                <a href="{{ route('admin.Restaurants.index') }}" class="btn btn-outline-light" as="button">Torna al Ristorante</a> 
 
-
-                {{-- <div class="mb-3">
-                    <label for="title" class="form-label">Immagine Ristorante</label>
-                    <input type="text" class="form-control" id="image_path" name="image_path"
-                        value="{{ old('image_path') }}" />
-                </div> --}}
-
-                {{-- <div class="mb-3">
-                <label for="title" class="form-label">Tipo Ristorante</label>
-                <select name="type_id" class="form-select" aria-label="Default select example">
-                    <option disabled selected>Scegli le tipologie del tuo ristorante</option>
-                    @foreach ($types as $type)
-                        <option value="{{$type->id}}" @if (old('type_id') == $type->id) selected @endif >{{$type->name}}</option>
-                    @endforeach
-                  </select>
-            </div> --}}
-
-                <div class="mb-3">
-                    <label for="title" class="form-label">Scegli le tipologie del tuo ristorante:</label>
-
-                    <div>
-                        @foreach ($types as $type)
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="checkbox" name="types[]" id="ty-{{ $type->id }}"
-                                    value="{{ $type->id }}"
-                                    {{ in_array($type->id, old('types', [])) ? 'checked' : '' }}>
-                                <label class="form-check-label" for="tec-{{ $type->id }}">{{ $type->name }}</label>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
                             </div>
-                        @endforeach
-
-                    </div>
-                    <div class="mb-3">
-                        <label for="cover_image" class="form-label">Image</label>
-                        <input class="form-control" type="file" id="cover_image" name="cover_image"
-                            value="{{ old('cover_image') }}">
-
-                    </div>
-
-                </div>
-                <div class="card-footer">
-                    <a href="{{ route('admin.Restaurants.store') }}">
-                        <button class="btn btn-outline-primary">
-                            Crea
-                        </button>
-                    </a>
-                </div>
-
-
-
-
-
-        </form>
-
-
-    </div>
-@endsection
+                        </div>
+                    @endsection
+                    
