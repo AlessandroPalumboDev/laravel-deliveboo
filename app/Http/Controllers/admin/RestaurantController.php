@@ -120,7 +120,7 @@ class RestaurantController extends Controller
         
     
    
-    return redirect()->route('admin.restaurants.index')->with('message'.' - Ristorante aggiornato correttamente');;
+    return redirect()->route('admin.Restaurants.index')->with('message'.' - Ristorante aggiornato correttamente');;
     }
     
 
@@ -133,7 +133,7 @@ class RestaurantController extends Controller
 
         $restaurant->delete();
 
-        return redirect()->route('admin.restaurants.index');
+        return redirect()->route('admin.Restaurants.index');
     }
 }
 

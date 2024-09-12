@@ -66,13 +66,13 @@
                                             </div>
                                             <div class="modal-footer  border-danger ">
 
-                                                <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal">Close</button>
+                                                <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal">Annulla</button>
 
-                                                <form action="{{ route('admin.Restaurants.destroy', $restaurant->id) }}"
-                                                    method="POST"
-                                                    onsubmit="return confirm('Sei sicuro di voler eliminare questo ristorante?');">
+                                                <form action="{{ route('admin.Restaurants.destroy') }}"
+                                                    method="POST">
                                                     @csrf
                                                     @method('DELETE')
+
                                                     <button type="submit" class="btn btn-outline-danger">Elimina</button>
                                                 </form>
                                             </div>
@@ -85,8 +85,7 @@
                         <div class="alert alert-warning text-center">
                             <h4 class="alert-heading">Non hai ancora creato il tuo ristorante!</h4>
                             <p>Clicca qui sotto per creare subito il tuo ristorante e iniziare a vendere.</p>
-                            <a href="{{ route('admin.Restaurants.create') }}" class="btn btn-primary">Crea
-                                Ristorante</a>
+                            <a href="{{ route('admin.Restaurants.create') }}" class="btn btn-primary">Crea il tupo Ristorante</a>
                         </div>
                     @endif
                 </div>

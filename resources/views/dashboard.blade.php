@@ -25,8 +25,7 @@
                             <div class="alert alert-warning text-center">
                                 <h4 class="alert-heading">Non hai ancora creato il tuo ristorante!</h4>
                                 <p>Clicca qui sotto per creare subito il tuo ristorante e iniziare a vendere.</p>
-                                <a href="{{ route('admin.Restaurants.create') }}" class="btn btn-primary">Crea
-                                    Ristorante</a>
+                                <a href="{{ route('admin.Restaurants.create') }}" class="btn btn-primary">Crea il ruo Ristorante</a>
                             </div>
                         @endif
                     </div>
