@@ -15,7 +15,7 @@
                         @if ($plates && $plates->count() > 0)
                                 @foreach ($plates as $plate)
 
-                                    <div class="card col-3 shadow-sm border-primary rounded">
+                                    <div class="card p-1 col-3 shadow-sm border-primary rounded">
     
                                                 <img src="{{ asset('storage/' . $plate->cover_image) }}" class="card-img-top mb-3">
                                             
