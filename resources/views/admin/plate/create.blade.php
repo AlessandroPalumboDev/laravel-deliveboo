@@ -43,61 +43,64 @@
                             </div>
 
                             <div class="d-flex gap-4 mb-3">
+
                                 <div class="mb-3">
                                     <input class="form-check-input" type="checkbox" name="is_vegetarian" id="is_vegetarian"
                                         value="1" {{ old('is_vegetarian') ? 'checked' : '' }}>
                                     <label class="form-check-label" for="is_vegetarian">Vegetariano</label>
                                 </div>
-    
+
                                 <div class="mb-3">
-                                    <input class="form-check-input" type="checkbox" name="is_vegan"
-                                        value="1" {{ old('is_vegan') ? 'checked' : '' }} id="is_vegan">
+                                    <input class="form-check-input" type="checkbox" name="is_vegan" value="1"
+                                        {{ old('is_vegan') ? 'checked' : '' }} id="is_vegan">
                                     <label class="form-check-label" for="is_vegan">Vegano</label>
                                 </div>
-    
+
                                 <div class="mb-3">
-                                    <input class="form-check-input" type="checkbox" name="is_gluten_free"
-                                        value="1" {{ old('is_gluten_free') ? 'checked' : '' }} id="is_gluten_free">
+                                    <input class="form-check-input" type="checkbox" name="is_gluten_free" value="1"
+                                        {{ old('is_gluten_free') ? 'checked' : '' }} id="is_gluten_free">
                                     <label class="form-check-label" for="is_gluten_free">Senza Glutine</label>
                                 </div>
-    
+
                                 <div class="mb-3">
-                                    <input class="form-check-input" type="checkbox" name="is_lactose_free"
-                                        value="1" {{ old('is_lactose_free') ? 'checked' : '' }} id="is_lactose_free">
+                                    <input class="form-check-input" type="checkbox" name="is_lactose_free" value="1"
+                                        {{ old('is_lactose_free') ? 'checked' : '' }} id="is_lactose_free">
                                     <label class="form-check-label" for="is_lactose_free">Senza Lattosio</label>
                                 </div>
-    
+
                                 <div class="mb-3">
-                                    <input class="form-check-input" type="checkbox" name="is_spicy"
-                                        value="1" {{ old('is_spicy') ? 'checked' : '' }} id="is_spicy">
+                                    <input class="form-check-input" type="checkbox" name="is_spicy" value="1"
+                                        {{ old('is_spicy') ? 'checked' : '' }} id="is_spicy">
                                     <label class="form-check-label" for="is_spicy">Piccante</label>
                                 </div>
-    
+
                                 <div class="mb-3">
-                                    <input class="form-check-input" type="checkbox" name="is_visible"
-                                        value="1" {{ old('is_visible') ? 'checked' : '' }} id="is_visible">
+                                    <input class="form-check-input" type="checkbox" name="is_visible" value="1"
+                                        {{ old('is_visible') ? 'checked' : '' }} id="is_visible">
                                     <label class="form-check-label" for="is_visible">Visibile</label>
                                 </div>
+
                             </div>
 
-                            
 
-                            
+
+
+
                             <div class="mb-3">
                                 <label for="cover_image" class="form-label">Immagine del Piatto</label>
                                 <input class="form-control" type="file" id="cover_image" name="cover_image"
                                     value="{{ old('image_path') }}">
-            
+
                             </div>
                         </div>
 
-        
+
                         <div class="card-footer">
                             <button class="btn btn-outline-primary" type="submit">
                                 Crea
                             </button>
                         </div>
-                        
+
                 </div>
 
 

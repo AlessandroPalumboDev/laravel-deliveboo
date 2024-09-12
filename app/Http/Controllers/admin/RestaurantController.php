@@ -7,10 +7,11 @@ use App\Models\restaurant;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreRestaurantRequest;
-
+use App\Http\Requests\UpdaterestaurantsRequest;
 use App\Models\Type;
 use App\Models\Plate;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class RestaurantController extends Controller
 {
@@ -73,25 +74,57 @@ class RestaurantController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit($id)
     {
-        //
+        $restaurant = Restaurant::findOrFail($id);
+        $types = Type::all();
+    
+        return view('admin.restaurants.edit',compact('restaurant','types'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
-    {
-        //
+    public function update(UpdaterestaurantsRequest $request, $id) {
+        // Trova il ristorante esistente tramite l'ID
+        $restaurant = Restaurant::findOrFail($id);
+
+        $data = $request->all();
+
+        $restaurant->business_name = $data['business_name'];
+        $restaurant->address = $data['address'];
+    
+        // Gestisci il caricamento dell'immagine se presente
+        if ($request->hasFile('cover_image')) {
+            $img_path = $request->file('cover_image')->store('uploads', 'public');
+            $restaurant->image_path = $img_path;
+        }
+    
+        // Associa i tipi di ristorante (se presenti)
+        if ($request->has('types')) {
+            $restaurant->types()->sync($request->types);
+        }
+    
+        // Salva le modifiche
+        $restaurant->save();
+        
+        
+    
+   
+    return redirect()->route('admin.dashboard')->with('message'.' - Post aggiornato correttamente');;
     }
+    
 
     /**
      * Remove the specified resource from storage.
      */
     public function destroy(string $id)
     {
-        //
+        $restaurant = Restaurant::findOrFail($id);
+
+        $restaurant->delete();
+
+        return redirect()->route('admin.dashboard');
     }
 }
 // $data = $request->validated();

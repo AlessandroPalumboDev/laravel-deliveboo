@@ -36,7 +36,16 @@
                                         <div class="d-flex justify-content-around py-2">
                                             <a href={{ route('admin.plates.index') }} class="btn btn-outline-primary">My
                                                 Foods</a>
+                                            <a href={{ route('admin.Restaurants.edit', $restaurant) }}
+                                                class="btn btn-outline-primary">edit restaurant</a>
                                             <a href="#" class="btn btn-outline-primary">My Orders</a>
+                                            <form action="{{ route('admin.Restaurants.destroy', $restaurant->id) }}"
+                                                method="POST"
+                                                onsubmit="return confirm('Sei sicuro di voler eliminare questo ristorante?');">
+                                                @csrf
+                                                @method('DELETE')
+                                                <button type="submit" class="btn btn-danger">Elimina</button>
+                                            </form>
                                         </div>
                                     </div>
                                 </div>
