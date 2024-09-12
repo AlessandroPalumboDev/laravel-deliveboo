@@ -1,12 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
+    <div class="container mt-5">
         <div class="row justify-content-center">
-            <div class="col mt-4">
-                <div class="card">
-                    <div class="card-header">{{ __('Dashboard') }}</div>
-
+            <div class="col-lg-8">
+                <div class="card shadow-lg border-0 rounded">
+                    <div class="card-header bg-success text-white">
+                        <h3 class="mb-0">{{ __('I tuoi ristoranti.') }}</h3>
+                    </div>
                     <div class="card-body">
                         @if (session('status'))
                             <div class="alert alert-success" role="alert">
@@ -14,57 +15,46 @@
                             </div>
                         @endif
 
-                        {{ __('You are logged in!') }}
+                        <h5 class="mb-4">{{ __('Sei loggato!') }}</h5>
 
                         @if ($restaurants && $restaurants->count() > 0)
-                            {{-- {{dd($users)}} --}}
-
                             @foreach ($restaurants as $restaurant)
-                                <div class="card">
-                                    <div class="card-header">
-                                        <h4 class="card-title">{{ $restaurant->business_name }}</h4>
-                                    </div>
-                                    <div class="card-body">
-                                        <h5 class="card-img">IMG:{{ $restaurant->image_path }}</h5>
-                                        <p>In: {{ $restaurant->address }}</p>
-                                        @foreach ($users as $user)
-                                            <p>Attività di: {{ $user->name }} {{ $user->surname }} </p>
-                                            <p>Partita IVA: {{ $user->p_iva }} </p>
-                                        @endforeach
-
-
-                                        <div class="d-flex justify-content-around py-2">
-                                            <a href={{ route('admin.plates.index') }} class="btn btn-outline-primary">My
-                                                Foods</a>
-                                            <a href="#" class="btn btn-outline-primary">My Orders</a>
+                                <div class="card mb-4 shadow-sm border-0 rounded">
+                                    <div class="row g-0">
+                                        <div class="col-md-4">
+                                            <img src="{{ $restaurant->image_path }}" class="img-fluid rounded-start"
+                                                alt="Restaurant Image">
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="card-body">
+                                                <h4 class="card-title text-success">{{ $restaurant->business_name }}</h4>
+                                                <p class="card-text text-muted">Indirizzo: {{ $restaurant->address }}</p>
+                                                @foreach ($users as $user)
+                                                    <p class="card-text">Gestito da: <strong>{{ $user->name }}
+                                                            {{ $user->surname }}</strong></p>
+                                                    <p class="card-text">Partita IVA: <strong>{{ $user->p_iva }}</strong>
+                                                    </p>
+                                                @endforeach
+                                                <div class="d-flex justify-content-between mt-4">
+                                                    <a href="{{ route('admin.plates.index') }}"
+                                                        class="btn btn-outline-success">I miei Piatti</a>
+                                                    <a href="#" class="btn btn-outline-success">I miei Ordini</a>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-
-                                {{-- {{dd($restaurant)}} --}}
                             @endforeach
                         @else
-                            <div class="alert alert-danger" role="alert">
-                                <h3>
-                                    Non hai ancora creato il tuo ristorante
-                                </h3>
-                                <a href="{{ route('admin.Restaurants.create') }}" class="btn btn-outline-primary">Crea
+                            <div class="alert alert-warning text-center">
+                                <h4 class="alert-heading">Non hai ancora creato il tuo ristorante!</h4>
+                                <p>Clicca qui sotto per creare subito il tuo ristorante e iniziare a vendere.</p>
+                                <a href="{{ route('admin.Restaurants.create') }}" class="btn btn-success">Crea
                                     Ristorante</a>
                             </div>
                         @endif
-
-
-
-
-
-
-
-
                     </div>
-
                 </div>
-
-
             </div>
         </div>
     </div>
