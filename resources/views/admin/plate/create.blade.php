@@ -36,68 +36,40 @@
                             <div class="mb-4">
                                 <label for="price" class="form-label">Prezzo del piatto <span class="text-danger">*</span></label>
                                 <input type="number" class="form-control border-primary" id="price" name="price"
-                                    value="{{ old('price') }}" required />
+                                    value="{{ old('price') }}" required step="0.01" min="0" />
                             </div>
 
-<<<<<<< HEAD
                             <div class="d-flex gap-4 mb-3 flex-wrap">
                                 <div class="mb-3 form-check">
                                     <input class="form-check-input border-primary" type="checkbox" name="is_vegetarian" id="is_vegetarian"
-=======
-                            <div class="d-flex gap-4 mb-3">
-
-                                <div class="mb-3">
-                                    <input class="form-check-input" type="checkbox" name="is_vegetarian" id="is_vegetarian"
->>>>>>> CRUD-RESTAURANT-sd
                                         value="1" {{ old('is_vegetarian') ? 'checked' : '' }}>
                                     <label class="form-check-label" for="is_vegetarian">Vegetariano</label>
                                 </div>
 
-<<<<<<< HEAD
                                 <div class="mb-3 form-check">
                                     <input class="form-check-input border-primary" type="checkbox" name="is_vegan" value="1"
-=======
-                                <div class="mb-3">
-                                    <input class="form-check-input" type="checkbox" name="is_vegan" value="1"
->>>>>>> CRUD-RESTAURANT-sd
                                         {{ old('is_vegan') ? 'checked' : '' }} id="is_vegan">
                                     <label class="form-check-label" for="is_vegan">Vegano</label>
                                 </div>
 
-<<<<<<< HEAD
                                 <div class="mb-3 form-check">
                                     <input class="form-check-input border-primary" type="checkbox" name="is_gluten_free" value="1"
-=======
-                                <div class="mb-3">
-                                    <input class="form-check-input" type="checkbox" name="is_gluten_free" value="1"
->>>>>>> CRUD-RESTAURANT-sd
                                         {{ old('is_gluten_free') ? 'checked' : '' }} id="is_gluten_free">
                                     <label class="form-check-label" for="is_gluten_free">Senza Glutine</label>
                                 </div>
 
-<<<<<<< HEAD
                                 <div class="mb-3 form-check">
                                     <input class="form-check-input border-primary" type="checkbox" name="is_lactose_free" value="1"
-=======
-                                <div class="mb-3">
-                                    <input class="form-check-input" type="checkbox" name="is_lactose_free" value="1"
->>>>>>> CRUD-RESTAURANT-sd
                                         {{ old('is_lactose_free') ? 'checked' : '' }} id="is_lactose_free">
                                     <label class="form-check-label" for="is_lactose_free">Senza Lattosio</label>
                                 </div>
 
-<<<<<<< HEAD
                                 <div class="mb-3 form-check">
                                     <input class="form-check-input border-primary" type="checkbox" name="is_spicy" value="1"
-=======
-                                <div class="mb-3">
-                                    <input class="form-check-input" type="checkbox" name="is_spicy" value="1"
->>>>>>> CRUD-RESTAURANT-sd
                                         {{ old('is_spicy') ? 'checked' : '' }} id="is_spicy">
                                     <label class="form-check-label" for="is_spicy">Piccante</label>
                                 </div>
 
-<<<<<<< HEAD
                             </div>
                             <div class="mb-3 form-check">
                                 <input class="form-check-input border-primary" type="checkbox" name="is_visible" value="1"
@@ -105,25 +77,10 @@
                                 <label class="form-check-label" for="is_visible">Visibile</label>
                             </div>
 
-=======
-                                <div class="mb-3">
-                                    <input class="form-check-input" type="checkbox" name="is_visible" value="1"
-                                        {{ old('is_visible') ? 'checked' : '' }} id="is_visible">
-                                    <label class="form-check-label" for="is_visible">Visibile</label>
-                                </div>
-
-                            </div>
-
-
-
-
-
->>>>>>> CRUD-RESTAURANT-sd
                             <div class="mb-3">
                                 <label for="cover_image" class="form-label">Immagine del Piatto</label>
                                 <input class="form-control  border-primary" type="file" id="cover_image" name="cover_image"
-                                    value="{{ old('image_path') }}">
-<<<<<<< HEAD
+                                    value="{{ old('cover_image') }}">
     
                             </div>
                         </div>
@@ -133,19 +90,6 @@
                                 Crea
                             </button>
                         </div>
-=======
-
-                            </div>
-                        </div>
-
-
-                        <div class="card-footer">
-                            <button class="btn btn-outline-primary" type="submit">
-                                Crea
-                            </button>
-                        </div>
-
->>>>>>> CRUD-RESTAURANT-sd
                 </div>
 
                 </form>
