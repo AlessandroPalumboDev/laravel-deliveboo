@@ -68,7 +68,7 @@
 
                                                 <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal">Annulla</button>
 
-                                                <form action="{{ route('admin.Restaurants.destroy') }}"
+                                                <form action="{{ route('admin.Restaurants.destroy', $restaurant) }}"
                                                     method="POST">
                                                     @csrf
                                                     @method('DELETE')
