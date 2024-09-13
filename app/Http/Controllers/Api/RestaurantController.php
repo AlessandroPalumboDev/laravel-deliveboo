@@ -9,6 +9,16 @@ use App\Models\Type;
 
 class RestaurantController extends Controller
 {
+    // Metodo per ottenere tutti i tipi di ristoranti
+    public function getTypes() {
+        $types = Type::all(); // Recupera tutti i tipi
+
+        return response()->json([
+            'success' => true,
+            'types' => $types
+        ]);
+    }
+
     // Lista dei ristoranti con almeno un tipo
     public function index(Request $request) {
         // Recupera i ristoranti che hanno almeno un tipo

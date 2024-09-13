@@ -29,3 +29,6 @@ Route::get('restaurants/{restaurant}/plates', [RestaurantController::class, 'get
 
 // Rotta per mostrare un singolo piatto
 Route::get('plates/{id}', [PlateController::class, 'show']);
+
+// Rotta per ottenere tutti i tipi
+Route::get('types', [RestaurantController::class, 'getTypes']);
