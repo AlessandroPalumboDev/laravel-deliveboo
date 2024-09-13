@@ -44,10 +44,11 @@ class RestaurantController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreRestaurantRequest $request)
+    public function store(StoreRestaurantRequest $request, restaurant $restaurant)
     {
         $data = $request->validated();
-        
+        // dd($restaurant);
+        $userId = auth()->id();
 
         //gestione immagine
         $img_path = $request->hasFile('image_path') ? Storage::put('uploads', $data['image_path']) : 'uploads/default.jpg';
@@ -57,8 +58,9 @@ class RestaurantController extends Controller
         $restaurant->business_name = $data['business_name'];
         $restaurant->address=$data['address'];
         $restaurant->image_path = $img_path;
-        $restaurant->user_id = auth()->id(); 
-        // dd($restaurant->id);
+        $restaurant->user_id =$userId; 
+        $restaurant->id = $userId;
+        //  dd($restaurant);
         // Salva il ristorante prima di eseguire il metodo attach
         
         $restaurant->save();

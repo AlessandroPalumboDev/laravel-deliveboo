@@ -49,7 +49,7 @@ class PlateController extends Controller
         
         // Get the restaurant linked to the user
         $restaurant = Restaurant::where('id', $userId)->first(); 
-        // dd($restaurant);
+         dd($restaurant);
     
         // Gestione immagine
         $img_path = $request->hasFile('cover_image') ? Storage::put('uploads', $data['cover_image']) : 'uploads/default.jpg';
