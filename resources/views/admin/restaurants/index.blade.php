@@ -23,8 +23,6 @@
                                 <div class="col-md-8 my-3 ms-3">
                                     <!-- Titoli Arancioni -->
                                     <h4 class="card-title orange">{{ $restaurant->business_name }}</h4>
-                                    <h4 class="card-title orange">ID Ristorante: {{ $restaurant->id }}</h4>
-                                    <h4 class="card-title orange">ID Utente: {{ $restaurant->user_id }}</h4>
                                     <p class="card-text text-muted">Indirizzo: {{ $restaurant->address }}</p>
 
                                     @foreach ($users as $user)
