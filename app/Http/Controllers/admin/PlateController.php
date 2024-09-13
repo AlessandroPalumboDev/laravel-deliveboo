@@ -45,9 +45,11 @@ class PlateController extends Controller
 
         // Recupero l' user ID
         $userId = auth()->id();
+        // dd($userId);
         
         // Get the restaurant linked to the user
         $restaurant = Restaurant::where('id', $userId)->first(); 
+        // dd($restaurant);
     
         // Gestione immagine
         $img_path = $request->hasFile('cover_image') ? Storage::put('uploads', $data['cover_image']) : 'uploads/default.jpg';
@@ -84,7 +86,11 @@ class PlateController extends Controller
      */
     public function show(string $id)
     {
-        //
+        // Trova il piatto tramite l'ID
+    $plate = Plate::findOrFail($id);
+
+    // Passa il piatto alla vista per la visualizzazione
+    return view('admin.plate.show', compact('plate'));
     }
 
     /**
@@ -92,23 +98,66 @@ class PlateController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        // Trova il piatto tramite l'ID
+    $plate = Plate::findOrFail($id);
+    $types = Type::all();
+
+    // Passa il piatto alla vista per la modifica
+    return view('admin.plate.edit', compact('plate', 'types'));
     }
 
     /**
      * Update the specified resource in storage.
      */
     public function update(Request $request, string $id)
-    {
-        //
+{
+    // Trova il piatto tramite l'ID
+    $plate = Plate::findOrFail($id);
+
+    // Validazione dei dati
+    $data = $request->validate([
+        'name' => 'required|string|max:255',
+        'description' => 'nullable|string',
+        'ingredients' => 'required|string',
+        'price' => 'required|numeric|min:0',
+        'is_visible' => 'nullable|boolean',
+        'is_vegetarian' => 'nullable|boolean',
+        'is_vegan' => 'nullable|boolean',
+        'is_gluten_free' => 'nullable|boolean',
+        'is_lactose_free' => 'nullable|boolean',
+        'is_spicy' => 'nullable|boolean',
+        'cover_image' => 'nullable|image|max:2048',
+    ]);
+
+    // Gestione immagine
+    if ($request->hasFile('cover_image')) {
+        $img_path = Storage::put('uploads', $request->file('cover_image'));
+        $plate->cover_image = $img_path;
     }
+
+    // Aggiorna i campi del piatto
+    $plate->update($data);
+
+    // Salva il piatto
+    $plate->save();
+
+    // Reindirizza alla lista dei piatti
+    return redirect()->route('admin.plates.index')->with('success', 'Piatto aggiornato correttamente');
+}
 
     /**
      * Remove the specified resource from storage.
      */
     public function destroy(string $id)
     {
-        //
+        // Trova il piatto tramite l'ID
+        $plate = Plate::findOrFail($id);
+    
+        // Elimina il piatto
+        $plate->delete();
+    
+        // Reindirizza alla lista dei piatti
+        return redirect()->route('admin.plates.index')->with('success', 'Piatto eliminato correttamente');
     }
 }
 

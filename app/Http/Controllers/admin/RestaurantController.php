@@ -58,6 +58,7 @@ class RestaurantController extends Controller
         $restaurant->address=$data['address'];
         $restaurant->image_path = $img_path;
         $restaurant->user_id = auth()->id(); 
+        // dd($restaurant->id);
         // Salva il ristorante prima di eseguire il metodo attach
         
         $restaurant->save();
@@ -69,7 +70,7 @@ class RestaurantController extends Controller
 
         
 
-        return redirect()->route('admin.restaurants.index', $restaurant->id)->with('message', 'Il tuo ristorante:' . $restaurant->business_name . 'è stato creato correttamente');
+        return redirect()->route('admin.Restaurants.index', $restaurant->id)->with('message', 'Il tuo ristorante:' . $restaurant->business_name . 'è stato creato correttamente');
     }
 
     /**

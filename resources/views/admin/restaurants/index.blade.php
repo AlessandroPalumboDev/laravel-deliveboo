@@ -20,6 +20,8 @@
 
                                     <div class="col-md-8 my-3 ms-3">
                                         <h4 class="card-title text-primary">{{ $restaurant->business_name }}</h4>
+                                        <h4 class="card-title text-primary">id ristorante: {{ $restaurant->id }}</h4>
+                                        <h4 class="card-title text-primary">id uente: {{ $restaurant->user_id }}</h4>
                                         <p class="card-text text-muted">Indirizzo: {{ $restaurant->address }}</p>
                                         @foreach ($users as $user)
                                             <p class="card-text">Gestito da: <strong>{{ $user->name }}
