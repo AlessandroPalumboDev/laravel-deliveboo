@@ -7,15 +7,15 @@
 
                 @if ($plates && $plates->count() > 0)
                     <div class="col d-flex justify-content-around">
-                        <a href="{{ route('admin.plates.create') }}" class="btn btn-outline-primary   mb-3">Aggiungi un
+                        <a href="{{ route('admin.Plates.create') }}" class="btn btn-outline-orange   mb-3">Aggiungi un
                             piatto</a>
-                        <a href="{{ route('admin.Restaurants.index') }}" class="btn btn-outline-primary   mb-3">Torna al tuo
+                        <a href="{{ route('admin.Restaurants.index') }}" class="btn btn-outline-orange   mb-3">Torna al tuo
                             ristorante</a>
                     </div>
                     @foreach ($plates as $plate)
-                        <div class="card mb-4 shadow-lg border-primary rounded">
+                        <div class="card mb-4 shadow-lg border-orange rounded">
 
-                            <div class="card-header bg-primary text-white">
+                            <div class="card-header card-header-orange text-white">
                                 <h3 class="mb-0">{{ $plate->name }}</h3>
                             </div>
 
@@ -32,13 +32,13 @@
                                     <p class="card-text">Prezzo: <strong>€{{ number_format($plate->price, 2) }}</strong></p>
                                     <div class="d-flex gap-3">
                                         <a href="{{ route('admin.Plates.edit', $plate) }}"
-                                            class="btn btn-outline-primary">Modifica</a>
+                                            class="btn btn-outline-orange">Modifica</a>
 
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="card-footer bg-primary d-flex justify-content-between">
+                            <div class="card-footer card-footer-orange d-flex justify-content-between">
                                 <a href="{{ route('admin.Plates.show', $plate) }}"
                                     class="btn btn-outline-light">Dettagli</a>
 
@@ -66,7 +66,7 @@
                                             Questa azione sarà irreversibile!</p>
                                     </div>
                                     <div class="modal-footer border-danger">
-                                        <button type="button" class="btn btn-outline-primary"
+                                        <button type="button" class="btn btn-outline-orange"
                                             data-bs-dismiss="modal">Annulla</button>
                                         <form action="{{ route('admin.Plates.destroy', $plate) }}" method="POST">
                                             @csrf

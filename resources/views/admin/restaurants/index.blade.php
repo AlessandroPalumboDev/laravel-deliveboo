@@ -34,7 +34,7 @@
                                     @endforeach
 
                                     <div class="d-flex gap-3">
-                                        <a href="{{ route('admin.plates.index') }}" class="btn btn-orange">I miei
+                                        <a href="{{ route('admin.Plates.index') }}" class="btn btn-orange">I miei
                                             Piatti</a>
                                         <a href="#" class="btn btn-orange">I miei Ordini</a>
                                     </div>
