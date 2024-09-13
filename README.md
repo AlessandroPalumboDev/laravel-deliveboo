@@ -3,7 +3,9 @@
 ```bash
 composer i
 npm i
-migrate
+
+php artisan storage:link
+php artisan db:seed migrate
 
 php artisan db:seed --class UsersTableSeeder
 php artisan db:seed --class RestaurantsSeeder
