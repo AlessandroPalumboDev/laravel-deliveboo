@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('business_name',70);
             $table->string('image_path',255);
             $table->string('address',255)->unique();
+            $table->string('slug')->nullable();
      
             $table->timestamps();
             

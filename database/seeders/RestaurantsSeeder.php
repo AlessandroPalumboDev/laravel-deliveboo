@@ -65,6 +65,8 @@ class RestaurantsSeeder extends Seeder
             $restaurant->image_path=$rest['image_path'];
     
             $restaurant->address=$rest['address'];
+
+            $restaurant->slug=Str::of($restaurant->business_name)->slug('-');
     
             
             $restaurant->save();

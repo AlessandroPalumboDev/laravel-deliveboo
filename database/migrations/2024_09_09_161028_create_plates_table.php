@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
 
             $table->string('name', 50);
-            $table->decimal('price', $precision = 4, $scale = 2);
+            $table->decimal('price',8,  2);
             $table->string('cover_image', length: 255);
             $table->text('description')->nullable();
             $table->text('ingredients');
@@ -25,7 +25,8 @@ return new class extends Migration
             $table->boolean('is_gluten_free');
             $table->boolean('is_lactose_free');
             $table->boolean('is_spicy');
-            
+            $table->string('slug')->nullable();
+
             $table->timestamps();
         });
     }

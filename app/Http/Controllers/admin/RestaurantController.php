@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\restaurant;
+use App\Models\Restaurant;
 use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreRestaurantRequest;
@@ -44,9 +44,11 @@ class RestaurantController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreRestaurantRequest $request, restaurant $restaurant)
+    public function store(StoreRestaurantRequest $request, Restaurant $restaurant)
     {
         $data = $request->validated();
+
+        $data['slug'] = Str::of($data['business_name'])->slug();
         // dd($restaurant);
         $userId = auth()->id();
 
@@ -56,9 +58,10 @@ class RestaurantController extends Controller
 
         $restaurant = new Restaurant();
         $restaurant->business_name = $data['business_name'];
-        $restaurant->address=$data['address'];
+        $restaurant->slug = $data['slug'];
+        $restaurant->address = $data['address'];
         $restaurant->image_path = $img_path;
-        $restaurant->user_id =$userId; 
+        $restaurant->user_id = $userId; 
         $restaurant->id = $userId;
         //  dd($restaurant);
         // Salva il ristorante prima di eseguire il metodo attach
@@ -72,7 +75,7 @@ class RestaurantController extends Controller
 
         
 
-        return redirect()->route('admin.Restaurants.index', $restaurant->id)->with('message', 'Il tuo ristorante:' . $restaurant->business_name . 'è stato creato correttamente');
+        return redirect()->route('admin.Restaurants.index', )->with('message', 'Il tuo ristorante:' . $restaurant->business_name . 'è stato creato correttamente');
     }
 
     /**
@@ -86,26 +89,25 @@ class RestaurantController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit($id)
+    public function edit(restaurant $restaurant)
     {
-        $restaurant = Restaurant::findOrFail($id);
         $types = Type::all();
     
-        return view('admin.restaurants.edit',compact('restaurant','types'));
+        return view('admin.Restaurants.edit',compact('restaurant','types'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdaterestaurantsRequest $request, $id) {
-        // Trova il ristorante esistente tramite l'ID
-        $restaurant = Restaurant::findOrFail($id);
+    public function update(UpdaterestaurantsRequest $request,restaurant $restaurant) {
 
         $data = $request->all();
 
+        $data['slug'] = Str::of($data['business_name'])->slug();
+
         $restaurant->business_name = $data['business_name'];
         $restaurant->address = $data['address'];
-    
+        $restaurant->slug = $data['slug'];
         // Gestisci il caricamento dell'immagine se presente
         if ($request->hasFile('image_path')) {
             $img_path = $request->file('image_path')->store('uploads', 'public');
@@ -130,10 +132,9 @@ class RestaurantController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(restaurant $restaurant)
     {
-        $restaurant = Restaurant::findOrFail($id);
-
+        
         $restaurant->delete();
 
         return redirect()->route('admin.Restaurants.index');

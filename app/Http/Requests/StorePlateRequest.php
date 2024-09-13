@@ -33,6 +33,7 @@ class StorePlateRequest extends FormRequest
             'is_gluten_free'=>'boolean',
             'is_lactose_free'=>'boolean',
             'is_spicy'=>'boolean',
+            'slug' => 'nullable|unique:plates:slug',
         ];
     }
 }

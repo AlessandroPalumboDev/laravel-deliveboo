@@ -7,6 +7,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Str;
 
 class PlateSeeder extends Seeder
 {
@@ -286,18 +287,32 @@ class PlateSeeder extends Seeder
         foreach($plates as $restaurant_plate) {
             $plate = new Plate();
 
+
             $plate->restaurant_id = $restaurant_plate['restaurant_id'];
+
             $plate->name = $restaurant_plate['name'];
+
             $plate->price = $restaurant_plate['price'];
+
             $plate->cover_image = $restaurant_plate['cover_image'];
+
             $plate->description = $restaurant_plate['description'];
+
             $plate->ingredients = $restaurant_plate['ingredients'];
+
             $plate->is_visible = $restaurant_plate['is_visible'];
+
             $plate->is_vegetarian = $restaurant_plate['is_vegetarian'];
+
             $plate->is_vegan = $restaurant_plate['is_vegan'];
+
             $plate->is_gluten_free = $restaurant_plate['is_gluten_free'];
+
             $plate->is_lactose_free = $restaurant_plate['is_lactose_free'];
+
             $plate->is_spicy = $restaurant_plate['is_spicy'];
+
+            $plate->slug=Str::of($plate->name)->slug('-');
 
             $plate->save();
         }

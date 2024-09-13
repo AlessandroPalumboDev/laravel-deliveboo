@@ -27,7 +27,11 @@ Route::middleware('auth', 'verified')
 ->group(function(){
 Route::get('/',[DashboardController::class,'index'])->name('dashboard');
 
-    Route::resource('Restaurants', RestaurantController::class);
-    Route::resource('plates', PlateController::class);
+    Route::resource('Restaurants', RestaurantController::class)->parameters([
+        'Restaurants'=>'restaurant:slug',
+    ]);
+    Route::resource('Plates', PlateController::class)->parameters([
+        'Plates'=>'plate:slug',
+    ]);
 });
 require __DIR__.'/auth.php';
