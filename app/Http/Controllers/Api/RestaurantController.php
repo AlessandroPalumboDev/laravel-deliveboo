@@ -20,28 +20,19 @@ class RestaurantController extends Controller
     }
 
     // Lista dei ristoranti con almeno un tipo
-    public function index(Request $request) {
+    public function index() {
         // Recupera i ristoranti che hanno almeno un tipo
-        $query = Restaurant::with('type')->whereHas('type');
-
-        // Filtro per tipo se passato nel request
-        if ($request->has('type')) {
-            $categories = explode(',', $request->input('type'));
-            $query->whereHas('type', function ($q) use ($categories) {
-                $q->whereIn('name', $categories);
-            });
-        }
-
-        // Paginazione dei risultati
-        $restaurants = $query->paginate(6);
-
-        // Risposta JSON
+        
+        $restaurants = Restaurant::with('types','plate')->paginate(3);
         return response()->json([
-            'success' => true,
-            'results' => $restaurants
+            'success'=> true,
+            'results'=>$restaurants,
+        
         ]);
     }
 
+        
+    
     // Lista dei piatti di un singolo ristorante
     public function getPlatesByRestaurant($restaurantId) {
         // Trova il ristorante tramite ID e carica i piatti
