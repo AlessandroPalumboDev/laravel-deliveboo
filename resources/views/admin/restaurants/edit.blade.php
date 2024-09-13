@@ -9,14 +9,14 @@
     <div class="container mt-4">
         <div class="row justify-content-center">
             <div class="col-lg-8">
-                <div class="card shadow-lg border-primary rounded">
-                    <div class="card-header bg-primary text-white text-center">
+                <div class="card shadow-lg border-orange rounded">
+                    <div class="card-header bg-orange text-white text-center">
                         <h1 class="mb-0">{{ __('Modifica il tuo ristorante!') }}</h1>
                     </div>
 
                     @include('shared.errors')
 
-                    <form action="{{ route('admin.Restaurants.update', $restaurant) }}" method="POST"
+                    <form action="{{ route('admin.Restaurants.update', $restaurant->id) }}" method="POST"
                         enctype="multipart/form-data">
                         @method('PUT')
                         @csrf
@@ -25,13 +25,13 @@
 
                             <div class="mb-3">
                                 <label for="business_name" class="form-label">Nome Ristorante </label>
-                                <input type="text" class="form-control border-primary" id="business_name"
+                                <input type="text" class="form-control border-orange" id="business_name"
                                     name="business_name" value="{{ old('business_name', $restaurant->business_name) }}" />
                             </div>
 
                             <div class="mb-3">
                                 <label for="address" class="form-label">Indirizzo Ristorante </label>
-                                <input type="text" class="form-control border-primary" id="address" name="address"
+                                <input type="text" class="form-control border-orange" id="address" name="address"
                                     value="{{ old('address', $restaurant->address) }}" />
                             </div>
 
@@ -42,7 +42,7 @@
                                         <div class="form-check form-check-inline">
 
 
-                                            <input class="form-check-input border-primary" type="checkbox" name="types[]"
+                                            <input class="form-check-input border-orange" type="checkbox" name="types[]"
                                                 value="{{ $type->id }}" id="{{ $type->id }}"
                                                 @if (old('types', $restaurant->types->pluck('id')->toArray()) &&
                                                         in_array($type->id, old('types', $restaurant->types->pluck('id')->toArray()))) checked @endif>
@@ -55,13 +55,13 @@
 
                             <div class="mb-3">
                                 <label for="image_path" class="form-label">Immagine del Ristorante</label>
-                                <input class="form-control border-primary" type="file" id="image_path" name="image_path"
+                                <input class="form-control border-orange" type="file" id="image_path" name="image_path"
                                     value="{{ old('image_path', $restaurant->image_path) }}">
                             </div>
 
                         </div>
 
-                        <div class="card-footer bg-primary text-end d-flex justify-content-between">
+                        <div class="card-footer bg-orange text-end d-flex justify-content-between">
                             <button class="btn btn-outline-light" type="submit">
                                 Modifica
                             </button>

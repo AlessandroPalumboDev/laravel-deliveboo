@@ -7,7 +7,7 @@
 
                 @if ($plates && $plates->count() > 0)
                     <div class="col d-flex justify-content-around">
-                        <a href="{{ route('admin.Plates.create') }}" class="btn btn-outline-primary   mb-3">Aggiungi un
+                        <a href="{{ route('admin.plates.create') }}" class="btn btn-outline-primary   mb-3">Aggiungi un
                             piatto</a>
                         <a href="{{ route('admin.Restaurants.index') }}" class="btn btn-outline-primary   mb-3">Torna al tuo
                             ristorante</a>
