@@ -41,7 +41,7 @@
 
                             <!-- Footer Arancione -->
                             <div class="card-footer bg-orange d-flex justify-content-between">
-                                <a href="{{ route('admin.Restaurants.edit', $restaurant->id) }}"
+                                <a href="{{ route('admin.Restaurants.edit', $restaurant) }}"
                                     class="btn btn-outline-light">Modifica</a>
 
                                 <!-- Bottone Elimina -->
