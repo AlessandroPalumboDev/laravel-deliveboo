@@ -22,7 +22,7 @@ class RestaurantController extends Controller
     // Lista dei ristoranti con almeno un tipo
     public function index(Request $request) {
         // Recupera i ristoranti che hanno almeno un tipo
-        $query = Restaurant::with('type')->whereHas('type');
+        $query = Restaurant::with('types')->whereHas('types');
 
         // Filtro per tipo se passato nel request
         if ($request->has('type')) {
