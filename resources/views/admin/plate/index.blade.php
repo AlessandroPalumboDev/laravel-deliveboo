@@ -54,7 +54,7 @@
                         <div class="modal fade" id="deleteModal{{ $plate->id }}" tabindex="-1"
                             aria-labelledby="deleteModalLabel{{ $plate->id }}" aria-hidden="true">
                             <div class="modal-dialog">
-                                <div class="modal-content border-danger">
+                                <div class="modal-content bg-dark-light text-light">
                                     <div class="modal-header border-danger">
                                         <h1 class="modal-title fs-5 text-danger" id="deleteModalLabel{{ $plate->id }}">
                                             Elimina Piatto</h1>

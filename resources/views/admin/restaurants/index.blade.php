@@ -56,8 +56,8 @@
                         <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel"
                             aria-hidden="true">
                             <div class="modal-dialog">
-                                <div class="modal-content border-danger">
-                                    <div class="modal-header border-danger">
+                                <div class="modal-content border-danger bg-dark-light text-light">
+                                    <div class="modal-header border-danger ">
                                         <h1 class="modal-title fs-5 text-danger" id="deleteModalLabel">Elimina Ristorante
                                         </h1>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal"
