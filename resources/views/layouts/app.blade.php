@@ -18,7 +18,7 @@
     @vite(['resources/js/app.js'])
 </head>
 
-<body>
+<body class="bg-dark">
     <div id="app">
 
         <nav class="navbar navbar-expand-md navbar-light bg-orange shadow-sm">
@@ -27,7 +27,7 @@
                     <div class="logo_laravel d-flex align-items-center">
 
                         <img src="{{ asset('images/logo3.png') }}" alt="Logo"
-                            style="width: 270px; height: 100px; margin-right: 10px; margin-top: 6px;">
+                            style="width: 230px; height: 80px; margin-right: 10px;">
 
                         {{-- <h3 class="text-white mb-0">
                             DELIVEBOO

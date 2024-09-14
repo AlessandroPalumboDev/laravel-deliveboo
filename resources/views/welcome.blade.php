@@ -1,13 +1,13 @@
 @extends('layouts.app')
 @section('content')
-    <div class="jumbotron p-5 mb-4 bg-orange-light rounded-3">
-        <div class="container py-5">
+    <div class="jumbotron p-5 m-4 bg-dark-light rounded-3">
             @auth
-                <div class="text-center">
-                    <button class="btn btn-outline-white btn-lg" type="button">
-                        <a class="nav-link" href="{{ route('admin.Restaurants.index') }}">{{ __('Vai al tuo ristorante') }}</a>
-                    </button>
-                </div>
+            <div class="mb-3 text-center">
+                <button class="btn btn-outline-orange btn-lg" type="button">
+                    <a class="nav-link"
+                        href="{{ route('admin.Restaurants.index') }}">{{ __('Vai al tuo ristorante') }}</a>
+                </button>
+            </div>
             @endauth
 
             @guest
@@ -27,6 +27,5 @@
                     <a class="nav-link text-white" href="{{ route('register') }}">{{ __('Registrati') }}</a>
                 </button>
             @endguest
-        </div>
     </div>
 @endsection

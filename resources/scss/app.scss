@@ -1,7 +1,5 @@
 @import "~bootstrap/scss/bootstrap";
 
-
-
 .orange {
     color: rgb(255, 165, 0);
 }
@@ -36,12 +34,32 @@
     }
 }
 
+.btn-outline-brown {
+    color: rgba(128, 13, 0, 255);
+    border-color: rgba(128, 13, 0, 255);
+
+    &:hover {
+        background-color: rgba(128, 13, 0, 255);
+        color: white;
+        border-color: rgba(128, 13, 0, 255);
+    }
+}
+
+.btn-brown {
+    background-color: rgba(128, 13, 0, 255);
+    color: white;
+    border-color: rgba(128, 13, 0, 255);
+
+    &:hover {
+        background-color: rgba($color: #af2d2d, $alpha: 1);
+        border-color: rgba($color: #310c0c, $alpha: 1);
+    }
+}
+
 .btn-outline-white {
     color: rgb(255, 255, 255);
     border-color: rgb(255, 140, 0);
     background-color: rgb(255, 165, 0);
-   
-    
 
     &:hover {
         background-color: rgb(255, 140, 0);
@@ -64,7 +82,7 @@
 
 .card-header-orange {
     background-color: rgb(255, 140, 0);
-    color: white;
+    color: rgba(128, 13, 0, 255);
 }
 
 .card-footer-orange {
@@ -73,6 +91,8 @@
 
 .form-control.border-orange {
     border-color: rgb(255, 165, 0);
+    background-color: rgb(51, 49, 49);
+    color: white;
     &:focus {
         border-color: rgb(255, 140, 0);
         box-shadow: 0 0 0 0.2rem rgba(255, 165, 0, 0.25);
@@ -80,11 +100,16 @@
 }
 
 .text-orange {
-    color: rgb(255, 165, 0)
+    color: rgb(255, 165, 0);
 }
 
 .text-brown {
-    color: rgba(128,13,0,255);
+    color: rgba(128, 13, 0, 255);
 }
 
-
+.bg-dark {
+    background-color: rgb(51, 49, 49);
+}
+.bg-dark-light {
+    background-color: rgba($color: #33333381, $alpha: 1);
+}

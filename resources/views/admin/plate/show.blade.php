@@ -4,8 +4,8 @@
     <div class="container my-4">
         <div class="row justify-content-center">
             <div class="col-lg-8">
-                <div class="card shadow-lg border-orange rounded">
-                    <div class="card-header card-header-orange text-white text-center">
+                <div class="card shadow-lg bg-dark-light text-light rounded-3">
+                    <div class="card-header card-header-orange text-brown text-center">
                         <h1 class="mb-0">{{ $plate->name }}</h1>
                     </div>
                     <div class="card-body">
@@ -20,8 +20,8 @@
                         <h4 class="orange">Prezzo:</h4>
                         <p>{{ $plate->price }} €</p>
                     </div>
-                    <div class="card-footer card-footer-orange text-white text-end">
-                        <a href="{{ route('admin.Plates.index') }}" class="btn btn-outline-light">Torna ai piatti</a>
+                    <div class="card-footer card-footer-orange text-brown text-end">
+                        <a href="{{ route('admin.Plates.index') }}" class="btn btn-outline-brown">Torna ai piatti</a>
                     </div>
                 </div>
             </div>
