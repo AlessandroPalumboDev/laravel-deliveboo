@@ -4,8 +4,12 @@
     <div class="container mt-4">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <div class="card border-orange shadow-lg">
-                    <div class="card-header bg-orange text-white fs-3"">{{ __('Accedi') }}</div>
+                <div class="card border-orange shadow-lg bg-dark-light text-light">
+                    <div class="card-header bg-orange text-brown fs-3">
+                        <h3>
+                            {{ __('Accedi') }}
+                        </h3>
+                    </div>
 
                     <div class="card-body">
                         <form method="POST" action="{{ route('login') }}">
