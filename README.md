@@ -27,6 +27,10 @@ Benvenuto nella documentazione API per il nostro sistema di gestione ristoranti.
 
 Tutti gli endpoint API sono accessibili tramite il seguente URL base:
 
+```bash
+http://127.0.0.1:8000/api/
+```
+
 ## Endpoints
 
 ### 1. **Ottenere Ristoranti**
@@ -73,8 +77,9 @@ GET /restaurants?type=Italiano,Cinese
 }
 ```
 
-2. Ottenere Piatti di un Ristorante
-   Endpoint: /restaurants/{restaurant}/plates
+### 2. Ottenere Piatti di un Ristorante
+
+Endpoint: /restaurants/{restaurant}/plates
 
 Metodo: GET
 
@@ -109,8 +114,9 @@ Risposta:
 }
 ```
 
-3. Ottenere Dettagli di un Singolo Piatto
-   Endpoint: /plates/{id}
+### 3. Ottenere Dettagli di un Singolo Piatto
+
+Endpoint: /plates/{id}
 
 Metodo: GET
 
@@ -140,8 +146,9 @@ Risposta:
 }
 ```
 
-4. Ottenere Tutti i Tipi
-   Endpoint: /types
+### 4. Ottenere Tutti i Tipi
+
+Endpoint: /types
 
 Metodo: GET
 
