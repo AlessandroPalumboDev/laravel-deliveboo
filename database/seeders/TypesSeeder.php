@@ -17,55 +17,74 @@ class TypesSeeder extends Seeder
         Type::create([
             'name' => 'Italiano',
             'description' => 'Ristoranti specializzati in cucina italiana',
-            'image_path' => 'images/types/plate.jpg',
+            'image_path' => 'uploads/italiano.jpg',
         ]);
 
         Type::create([
-            'name' => 'Internazionale',
-            'description' => 'Ristoranti con cucina internazionale',
-            'image_path' => 'images/types/plate.jpg',
+            'name' => 'Pizza',
+            'description' => 'Ristoranti con cucina pizza',
+            'image_path' => 'uploads/pizza.jpg',
         ]);
 
         Type::create([
             'name' => 'Cinese',
             'description' => 'Ristoranti specializzati in cucina cinese',
-            'image_path' => 'images/types/plate.jpg',
+            'image_path' => 'uploads/cinese.jpg',
         ]);
 
         Type::create([
             'name' => 'Giapponese',
             'description' => 'Ristoranti specializzati in cucina giapponese',
-            'image_path' => 'images/types/plate.jpg',
+            'image_path' => 'uploads/giapponese.jpg',
         ]);
 
         Type::create([
             'name' => 'Messicano',
             'description' => 'Ristoranti specializzati in cucina messicana',
-            'image_path' => 'images/types/plate.jpg',
+            'image_path' => 'uploads/messicano.jpg',
         ]);
 
         Type::create([
             'name' => 'Indiano',
             'description' => 'Ristoranti specializzati in cucina indiana',
-            'image_path' => 'images/types/plate.jpg',
+            'image_path' => 'uploads/indiano.jpg',
         ]);
 
         Type::create([
-            'name' => 'Pesce',
-            'description' => 'Ristoranti specializzati in piatti di pesce',
-            'image_path' => 'images/types/plate.jpg',
+            'name' => 'Sushi',
+            'description' => 'Ristoranti specializzati in sushi',
+            'image_path' => 'uploads/sushi.jpg',
         ]);
 
         Type::create([
-            'name' => 'Carne',
-            'description' => 'Ristoranti specializzati in piatti di carne',
-            'image_path' => 'images/types/plate.jpg',
+            'name' => 'Marocchino',
+            'description' => 'Ristoranti specializzati in marocchina',
+            'image_path' => 'uploads/marocchino.jpg',
         ]);
 
         Type::create([
-            'name' => 'Pizza',
-            'description' => 'Ristoranti specializzati in pizza',
-            'image_path' => 'images/types/plate.jpg',
+            'name' => 'Libanese',
+            'description' => 'Ristoranti specializzati in libanese',
+            'image_path' => 'uploads/libanese.jpg',
         ]);
+        
+        Type::create([
+            'name' => 'Thailandese',
+            'description' => 'Ristoranti specializzati in thailandese',
+            'image_path' => 'uploads/thailandese.jpg',
+        ]);
+
+        Type::create([
+            'name' => 'Hamburger',
+            'description' => 'Ristoranti specializzati in hamburger',
+            'image_path' => 'uploads/hamburger.jpg',
+        ]);
+
+        Type::create([
+            'name' => 'Street-Food',
+            'description' => 'Ristoranti specializzati in street-food',
+            'image_path' => 'uploads/streetfood.jpg',
+        ]);
+
     }
 }
