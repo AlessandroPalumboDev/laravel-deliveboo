@@ -12,7 +12,7 @@
                     </div>
 
                     <div class="card-body ">
-                        <form method="POST" action="{{ route('register') }}">
+                        <form method="POST" action="{{ route('register') }}" id="myForm">
                             @csrf
 
                             {{-- NOME --}}
@@ -54,8 +54,7 @@
 
                             {{-- INDIRIZZO EMAIL --}}
                             <div class="mb-4 row">
-                                <label for="email"
-                                    class="col-md-4 col-form-label ">{{ __('Indirizzo e-mail') }} <span
+                                <label for="email" class="col-md-4 col-form-label ">{{ __('Indirizzo e-mail') }} <span
                                         class="text-danger">*</span></label>
 
                                 <div class="col-md-6">
@@ -79,7 +78,8 @@
                                 <div class="col-md-6">
                                     <input id="p_iva" type="text"
                                         class="form-control border-orange @error('p_iva') is-invalid @enderror"
-                                        name="p_iva" value="{{ old('p_iva') }}" required autocomplete="p_iva" autofocus>
+                                        name="p_iva" value="{{ old('p_iva') }}" required autocomplete="p_iva" autofocus
+                                        maxlength="11">
 
                                     @error('p_iva')
                                         <span class="invalid-feedback" role="alert">
@@ -116,17 +116,22 @@
                                 <div class="col-md-6">
                                     <input id="password-confirm" type="password" class="form-control border-orange"
                                         name="password_confirmation" required autocomplete="new-password">
+                                    <div class='text-center text-danger mt-2 d-none' id="error_message">
+                                        La Password inserita non corrisponde!
+                                    </div>
                                 </div>
+
                             </div>
 
                     </div>
                     <div class="card-footer bg-orange">
                         {{-- BOTTONE --}}
-                        <button type="submit" class="btn btn-outline-brown">
+                        <button id='sub_verify' type="submit" class="btn btn-outline-brown">
                             {{ __('Registrati') }}
                         </button>
                     </div>
                     </form>
+
                 </div>
             </div>
         </div>
