@@ -16,7 +16,7 @@
 
                     @include('shared.errors')
 
-                    <form action="{{ route('admin.Restaurants.update', $restaurant->id) }}" method="POST"
+                    <form action="{{ route('admin.Restaurants.update', $restaurant->slug) }}" method="POST"
                         enctype="multipart/form-data">
                         @method('PUT')
                         @csrf
