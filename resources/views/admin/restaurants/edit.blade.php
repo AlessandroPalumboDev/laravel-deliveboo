@@ -9,7 +9,7 @@
     <div class="container mt-4">
         <div class="row justify-content-center">
             <div class="col-lg-8">
-                <div class="card shadow-lg bg-dark-light text-light rounded">
+                <div class="card shadow-lg bg-dark-light text-light rounded-4">
                     <div class="card-header bg-orange text-brown text-center">
                         <h1 class="mb-0">{{ __('Modifica il tuo ristorante!') }}</h1>
                     </div>

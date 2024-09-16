@@ -83,11 +83,15 @@
                         </div>
                     @endforeach
                 @else
-                    <div class="alert alert-warning text-center">
-                        <h4 class="alert-heading">Non hai ancora creato il tuo ristorante!</h4>
-                        <p>Clicca qui sotto per creare subito il tuo ristorante e iniziare a vendere.</p>
-                        <a href="{{ route('admin.Restaurants.create') }}" class="btn btn-orange">Crea il tuo Ristorante</a>
+                <div class="card bg-dark-light shadow-lg rounded-3">   
+                    <div class="card-body text-center">
+                     
+                        <h4 class="text-light">Non hai ancora creato il tuo ristorante!</h4>
+                        <p class="text-light">Clicca qui sotto per creare subito il tuo ristorante e iniziare a vendere.</p>
+                        <a href="{{ route('admin.Restaurants.create') }}" class="btn btn-outline-orange btn-lg">Crea il tuo
+                            Ristorante</a>
                     </div>
+                </div>
                 @endif
             </div>
         </div>
