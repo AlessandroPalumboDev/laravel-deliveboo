@@ -26,7 +26,9 @@ class StoreRestaurantRequest extends FormRequest
            'image_path' => 'file|image|max:2048', 
            'address' => 'string|max:255',
            'slug' => 'nullable|unique:restaurants,slug',
-           'types'=> 'array',
+
+           // Assicurati che almeno una tipologia sia selezionata
+           'types' => 'required|array|min:1',
         ];
     }
 
@@ -35,6 +37,10 @@ class StoreRestaurantRequest extends FormRequest
         return [
             'business_name.required' => 'Il nome del ristorante è obbligatorio!',
             'business_name.max' => 'Il nome del ristorante non può contenere più di 70 caratteri',
+
+            // Messaggio di errore per la validazione delle tipologie
+            'types.required' => 'Devi selezionare almeno una tipologia di ristorante.',
+            'types.min' => 'Devi selezionare almeno una tipologia di ristorante.',
         ];
     }
 }

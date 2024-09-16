@@ -23,16 +23,22 @@ class UpdaterestaurantsRequest extends FormRequest
     {
         return [
             'business_name' => 'nullable|string|max:70',
-           'image_path' => 'file|image|max:2048', 
-           'address' => 'nullable|string|max:255',
-           'types'=> 'array',
+            'image_path' => 'file|image|max:2048',
+            'address' => 'nullable|string|max:255',
+            
+            // Assicurati che almeno una tipologia sia selezionata
+            'types' => 'required|array|min:1',
         ];
     }
+
     public function messages(): array
     {
         return [
             'business_name.max' => 'Il nome del ristorante non può contenere più di 70 caratteri',
+            
+            // Messaggio di errore per la validazione delle tipologie
+            'types.required' => 'Devi selezionare almeno una tipologia di ristorante.',
+            'types.min' => 'Devi selezionare almeno una tipologia di ristorante.',
         ];
     }
-
 }
