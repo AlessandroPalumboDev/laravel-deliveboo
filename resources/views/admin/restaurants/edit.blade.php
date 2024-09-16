@@ -9,14 +9,14 @@
     <div class="container mt-4">
         <div class="row justify-content-center">
             <div class="col-lg-8">
-                <div class="card shadow-lg border-orange rounded">
-                    <div class="card-header bg-orange text-white text-center">
+                <div class="card shadow-lg bg-dark-light text-light rounded-4">
+                    <div class="card-header bg-orange text-brown text-center">
                         <h1 class="mb-0">{{ __('Modifica il tuo ristorante!') }}</h1>
                     </div>
 
                     @include('shared.errors')
 
-                    <form action="{{ route('admin.Restaurants.update', $restaurant->id) }}" method="POST"
+                    <form action="{{ route('admin.Restaurants.update', $restaurant->slug) }}" method="POST"
                         enctype="multipart/form-data">
                         @method('PUT')
                         @csrf
@@ -62,10 +62,10 @@
                         </div>
 
                         <div class="card-footer bg-orange text-end d-flex justify-content-between">
-                            <button class="btn btn-outline-light" type="submit">
+                            <button class="btn btn-outline-brown" type="submit">
                                 Modifica
                             </button>
-                            <a href="{{ route('admin.Restaurants.index') }}" class="btn btn-outline-light"
+                            <a href="{{ route('admin.Restaurants.index') }}" class="btn btn-outline-brown"
                                 as="button">Torna al Ristorante</a>
 
                         </div>

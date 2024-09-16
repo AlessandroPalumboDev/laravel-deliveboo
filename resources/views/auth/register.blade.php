@@ -4,16 +4,20 @@
     <div class="container mt-4">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <div class="card orange-light-bg border-orange shadow-lg">
-                    <div class="card-header bg-orange text-black">{{ __('Registrati') }}</div>
+                <div class="card orange-light-bg border-orange shadow-lg bg-dark-light text-light">
+                    <div class="card-header bg-orange text-brown">
+                        <h3>
+                            {{ __('Registrati') }}
+                        </h3>
+                    </div>
 
-                    <div class="card-body">
+                    <div class="card-body ">
                         <form method="POST" action="{{ route('register') }}">
                             @csrf
 
                             {{-- NOME --}}
                             <div class="mb-4 row">
-                                <label for="name" class="col-md-4 col-form-label text-black">{{ __('Nome') }} <span
+                                <label for="name" class="col-md-4 col-form-label ">{{ __('Nome') }} <span
                                         class="text-danger">*</span></label>
 
                                 <div class="col-md-6">
@@ -31,7 +35,7 @@
 
                             {{-- COGNOME --}}
                             <div class="mb-4 row">
-                                <label for="surname" class="col-md-4 col-form-label text-black">{{ __('Cognome') }} <span
+                                <label for="surname" class="col-md-4 col-form-label ">{{ __('Cognome') }} <span
                                         class="text-danger">*</span></label>
 
                                 <div class="col-md-6">
@@ -51,7 +55,7 @@
                             {{-- INDIRIZZO EMAIL --}}
                             <div class="mb-4 row">
                                 <label for="email"
-                                    class="col-md-4 col-form-label text-black">{{ __('Indirizzo e-mail') }} <span
+                                    class="col-md-4 col-form-label ">{{ __('Indirizzo e-mail') }} <span
                                         class="text-danger">*</span></label>
 
                                 <div class="col-md-6">
@@ -69,7 +73,7 @@
 
                             {{-- PARTITA IVA --}}
                             <div class="mb-4 row">
-                                <label for="p_iva" class="col-md-4 col-form-label text-black">{{ __('Partita Iva') }}
+                                <label for="p_iva" class="col-md-4 col-form-label ">{{ __('Partita Iva') }}
                                     <span class="text-danger">*</span></label>
 
                                 <div class="col-md-6">
@@ -87,7 +91,7 @@
 
                             {{-- PASSWORD --}}
                             <div class="mb-4 row">
-                                <label for="password" class="col-md-4 col-form-label text-black">{{ __('Password') }}
+                                <label for="password" class="col-md-4 col-form-label ">{{ __('Password') }}
                                     <span class="text-danger">*</span></label>
 
                                 <div class="col-md-6">
@@ -106,7 +110,7 @@
                             {{-- CONFERMA PASSWORD --}}
                             <div class="mb-4 row">
                                 <label for="password-confirm"
-                                    class="col-md-4 col-form-label  text-black">{{ __('Conferma Password') }} <span
+                                    class="col-md-4 col-form-label  ">{{ __('Conferma Password') }} <span
                                         class="text-danger">*</span></label>
 
                                 <div class="col-md-6">
@@ -118,7 +122,7 @@
                     </div>
                     <div class="card-footer bg-orange">
                         {{-- BOTTONE --}}
-                        <button type="submit" class="btn btn-outline-light">
+                        <button type="submit" class="btn btn-outline-brown">
                             {{ __('Registrati') }}
                         </button>
                     </div>

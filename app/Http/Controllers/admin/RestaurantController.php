@@ -62,14 +62,15 @@ class RestaurantController extends Controller
         $restaurant->address = $data['address'];
         $restaurant->image_path = $img_path;
         $restaurant->user_id = $userId; 
-        $restaurant->id = $userId;
+        // $restaurant->id = $userId;
         //  dd($restaurant);
+
         // Salva il ristorante prima di eseguire il metodo attach
-        
         $restaurant->save();
+
         // Dopo aver salvato, puoi associare i tipi
         if($request->has('types')){
-            $restaurant->types()->attach($request->types);
+            $restaurant->types()->sync($request->types);
         }
         
 

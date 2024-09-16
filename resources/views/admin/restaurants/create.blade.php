@@ -4,8 +4,8 @@
     <div class="container mt-5">
         <div class="row justify-content-center">
             <div class="col-lg-8">
-                <div class="card shadow-lg border-orange rounded">
-                    <div class="card-header bg-orange text-white text-center">
+                <div class="card shadow-lg bg-dark-light text-light rounded-4">
+                    <div class="card-header bg-orange text-brown text-center">
                         <h1 class="mb-0">{{ __('Crea il tuo ristorante!') }}</h1>
                     </div>
 
@@ -54,7 +54,7 @@
                         </div>
 
                         <div class="card-footer bg-orange text-end">
-                            <button class="btn btn-outline-light" type="submit">
+                            <button class="btn btn-outline-brown" type="submit">
                                 Crea
                             </button>
                         </div>

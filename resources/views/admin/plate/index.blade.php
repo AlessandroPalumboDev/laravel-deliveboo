@@ -13,9 +13,9 @@
                             ristorante</a>
                     </div>
                     @foreach ($plates as $plate)
-                        <div class="card mb-4 shadow-lg border-orange rounded">
+                        <div class="card mb-4 shadow-lg bg-dark-light text-light rounded-3">
 
-                            <div class="card-header card-header-orange text-white">
+                            <div class="card-header card-header-orange text-brown">
                                 <h3 class="mb-0">{{ $plate->name }}</h3>
                             </div>
 
@@ -27,9 +27,9 @@
                                 </div>
 
                                 <div class="col-md-8 my-3 ms-3">
-                                    <p class="card-text text-muted">Descrizione: {{ $plate->description }}</p>
-                                    <p class="card-text">Ingredienti: <strong>{{ $plate->ingredients }}</strong></p>
-                                    <p class="card-text">Prezzo: <strong>€{{ number_format($plate->price, 2) }}</strong></p>
+                                    <p class="card-text "><span class="orange">Descrizione:</span> {{ $plate->description }}</p>
+                                    <p class="card-text"><span class="orange">Ingredienti:</span> {{ $plate->ingredients }}</></p>
+                                    <p class="card-text"><span class="orange">Prezzo:</span> €{{ number_format($plate->price, 2) }}</p>
                                     <div class="d-flex gap-3">
                                         <a href="{{ route('admin.Plates.edit', $plate) }}"
                                             class="btn btn-outline-orange">Modifica</a>
@@ -40,10 +40,10 @@
 
                             <div class="card-footer card-footer-orange d-flex justify-content-between">
                                 <a href="{{ route('admin.Plates.show', $plate) }}"
-                                    class="btn btn-outline-light">Dettagli</a>
+                                    class="btn btn-outline-brown">Dettagli</a>
 
                                 <!-- Button trigger modal -->
-                                <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                                <button type="button" class="btn btn-brown" data-bs-toggle="modal"
                                     data-bs-target="#deleteModal{{ $plate->id }}">
                                     Elimina
                                 </button>
@@ -54,7 +54,7 @@
                         <div class="modal fade" id="deleteModal{{ $plate->id }}" tabindex="-1"
                             aria-labelledby="deleteModalLabel{{ $plate->id }}" aria-hidden="true">
                             <div class="modal-dialog">
-                                <div class="modal-content border-danger">
+                                <div class="modal-content bg-dark-light text-light">
                                     <div class="modal-header border-danger">
                                         <h1 class="modal-title fs-5 text-danger" id="deleteModalLabel{{ $plate->id }}">
                                             Elimina Piatto</h1>
