@@ -37,7 +37,7 @@
                                         <div class="form-check form-check-inline">
                                             <input class="form-check-input border-orange" type="checkbox" name="types[]"
                                                 id="type-{{ $type->id }}" value="{{ $type->id }}"
-                                                {{ in_array($type->id, old('types', [])) ? 'checked' : '' }}>
+                                                {{ in_array($type->id, old('types', [])) ? 'checked' : '' }} required />
                                             <label class="form-check-label"
                                                 for="type-{{ $type->id }}">{{ $type->name }}</label>
                                         </div>
