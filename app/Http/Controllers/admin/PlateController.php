@@ -57,7 +57,7 @@ class PlateController extends Controller
         
     
         // Gestione immagine
-        $img_path = $request->hasFile('cover_image') ? Storage::put('uploads', $request('cover_image')) : 'uploads/default.jpg';
+        $img_path = $request->hasFile('cover_image') ? Storage::put('uploads', $request['cover_image']) : 'uploads/default.jpg';
 
     
         // Creo un anuova istanza di Plate
