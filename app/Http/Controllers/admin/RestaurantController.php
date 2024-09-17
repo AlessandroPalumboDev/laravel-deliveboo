@@ -92,10 +92,9 @@ class RestaurantController extends Controller
     public function edit(restaurant $restaurant)
     {
         $types = Type::all();
-        $restaurants = Restaurant::all();
 
         // Estrai solo gli indirizzi
-        $restaurantAddresses = $restaurants->pluck('address')->toArray();
+        $restaurantAddresses = Restaurant::where('id', '!=', $restaurant->id)->pluck('address')->toArray();
     
         return view('admin.Restaurants.edit',compact('restaurant','types', 'restaurantAddresses'));
     }

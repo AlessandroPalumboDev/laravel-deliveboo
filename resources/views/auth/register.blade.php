@@ -87,6 +87,9 @@
                                             <strong>{{ $message }}</strong>
                                         </span>
                                     @enderror
+                                    <div class='text-center text-danger mt-2 d-none' id="error-message-p-iva">
+                                        Il codice della partita Iva deve essere di 11 cifre
+                                    </div>
                                 </div>
                             </div>
 
@@ -105,6 +108,10 @@
                                             <strong>{{ $message }}</strong>
                                         </span>
                                     @enderror
+                                    <div class='text-center text-danger mt-2 d-none' id="error-message-password">
+                                        Il campo non può essere vuoto o minore di 8 caratteri
+                                    </div>
+                                    
                                 </div>
                             </div>
 

@@ -79,6 +79,7 @@
                             </button>
                             <a href="{{ route('admin.Restaurants.index') }}" class="btn btn-outline-brown"
                                 as="button">Torna al Ristorante</a>
+                                
                             <script>
                                 // Rendi disponibile l'array degli indirizzi come variabile globale
                                 window.restaurantAddresses = @json($restaurantAddresses);
