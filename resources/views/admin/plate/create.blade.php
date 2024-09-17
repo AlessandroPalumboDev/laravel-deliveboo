@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
+@vite(['resources/js/validation/plateCreateValidation.js'])
+
     <div class="container mt-4">
         <div class="row justify-content-center">
             <div class="col-lg-8">
@@ -11,7 +13,7 @@
 
                     @include('shared.errors')
 
-                    <form action="{{ route('admin.Plates.store') }}" method="POST" enctype="multipart/form-data">
+                    <form id="form-crea-piatto" action="{{ route('admin.Plates.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="card-body">
 
@@ -33,13 +35,19 @@
                                         class="text-danger">*</span></label>
                                 <input type="text" class="form-control border-orange" id="ingredients"
                                     name="ingredients" value="{{ old('ingredients') }}" />
+                                    {{-- messaggio di errore --}}
+                                    <div id="errore-ingredienti" class="d-none text-danger text-center">
+                                        <span>
+                                            Il campo non può essere vuoto
+                                        </span>
+                                    </div>
                             </div>
 
                             <div class="mb-4">
                                 <label for="price" class="form-label">Prezzo del piatto <span
                                         class="text-danger">*</span></label>
                                 <input type="number" class="form-control border-orange" id="price" name="price"
-                                    value="{{ old('price') }}" required step="0.01" min="0" />
+                                    value="{{ old('price') }}" required step="0.01" min="0.01" />
                             </div>
 
                             <div class="d-flex gap-4 mb-3 flex-wrap">
@@ -94,7 +102,7 @@
                                     Annulla
                                 </button>
                             </a>
-                            <button class="btn btn-outline-brown" type="submit">
+                            <button id="crea-piatto" class="btn btn-outline-brown" type="submit">
                                 Crea
                             </button>
                         </div>

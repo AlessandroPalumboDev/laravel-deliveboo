@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
+@vite(['resources/js/validation/plateCreateValidation.js'])
+
     <div class="container mt-4">
         <div class="row justify-content-center">
             <div class="col-lg-8">
@@ -11,7 +13,7 @@
 
                     @include('shared.errors')
 
-                    <form action="{{ route('admin.Plates.update', $plate) }}" method="POST" enctype="multipart/form-data">
+                    <form id="form-crea-piatto" action="{{ route('admin.Plates.update', $plate) }}" method="POST" enctype="multipart/form-data">
                         @method('PUT')
                         @csrf
                         <div class="card-body">
@@ -33,6 +35,12 @@
                                         class="text-danger">*</span></label>
                                 <input type="text" class="form-control border-orange" id="ingredients"
                                     name="ingredients" value="{{ old('ingredients', $plate->ingredients) }}" />
+                                    {{-- messaggio di errore --}}
+                                    <div id="errore-ingredienti" class="d-none text-danger text-center">
+                                        <span>
+                                            Il campo non può essere vuoto
+                                        </span>
+                                    </div>
                             </div>
 
                             <div class="mb-4">
@@ -102,7 +110,7 @@
                                     Indietro
                                 </button>
                             </a>
-                            <button class="btn btn-outline-brown" type="submit">
+                            <button id="crea-piatto" class="btn btn-outline-brown" type="submit">
                                 Modifica
                             </button>
                         </div>
