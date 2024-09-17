@@ -47,7 +47,8 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
                         <li class="nav-item">
-                            <a class="nav-link text-brown" href="{{ url('/') }}">{{ __('Home') }}</a>
+                            {{-- <a class="nav-link text-brown" href="{{ url('/') }}">{{ __('Home') }}</a> --}}
+                            <a class="nav-link text-brown" href="http://localhost:5173/">Vai al sito base</a>
                         </li>
                     </ul>
 
