@@ -1,11 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-    {{-- <form action="{{ route('admin.Restaurants.update', $restaurant->id) }}" method="POST" enctype="multipart/form-data">
-            @method('PUT')
-            @csrf --}}
-    {{-- <a href="{{ route('admin.Restaurants.index') }}" class="btn btn-primary" as="button">Torna al
-                        Ristorante</a> --}}
+@vite(['resources/js/validation/addressValidation.js'])
+
     <div class="container mt-4">
         <div class="row justify-content-center">
             <div class="col-lg-8">
@@ -16,7 +13,7 @@
 
                     @include('shared.errors')
 
-                    <form action="{{ route('admin.Restaurants.update', $restaurant->slug) }}" method="POST"
+                    <form id="form-crea-ristorante" action="{{ route('admin.Restaurants.update', $restaurant->slug) }}" method="POST"
                         enctype="multipart/form-data">
                         @method('PUT')
                         @csrf
@@ -24,49 +21,67 @@
                             {{-- {{dd($restaurant)}} --}}
 
                             <div class="mb-3">
-                                <label for="business_name" class="form-label">Nome Ristorante </label>
+                                <label for="business_name" class="form-label">Nome Ristorante <span class="text-danger">*</span></label>
                                 <input type="text" class="form-control border-orange" id="business_name"
-                                    name="business_name" value="{{ old('business_name', $restaurant->business_name) }}" />
+                                    name="business_name" value="{{ old('business_name', $restaurant->business_name) }}" required/>
                             </div>
 
                             <div class="mb-3">
-                                <label for="address" class="form-label">Indirizzo Ristorante </label>
+                                <label for="address" class="form-label">Indirizzo Ristorante <span class="text-danger">*</span></label>
                                 <input type="text" class="form-control border-orange" id="address" name="address"
-                                    value="{{ old('address', $restaurant->address) }}" />
+                                    value="{{ old('address', $restaurant->address) }}" required/>
+                            </div>
+                            <div id="errore-indirizzo" class="d-none text-danger ">
+                                <span>
+                                    Indirizzo già occupato da un altro ristorante
+                                </span>
                             </div>
 
+                        
                             <div class="mb-3">
-                                <label class="form-label">Scegli le tipologie del tuo ristorante: </label>
+                                <label class="form-label">Scegli le tipologie del tuo ristorante: <span class="text-danger">*</span></label>
                                 <div>
-                                    @foreach ($types as $type)
-                                        <div class="form-check form-check-inline">
+                                    <div class="input-group mb-3">
+                                        @foreach ($types as $type)
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input border-orange 
+                                                    @error('types') is-invalid @enderror" 
+                                                    type="checkbox" name="types[]" id="type-{{ $type->id }}" 
+                                                    value="{{ $type->id }}" {{ in_array($type->id, old('types', [])) ? 'checked' : '' }} />
+                                                <label class="form-check-label" for="type-{{ $type->id }}">{{ $type->name }}</label>
+                                            </div>
+                                        @endforeach
+                                    </div>
 
-
-                                            <input class="form-check-input border-orange" type="checkbox" name="types[]"
-                                                value="{{ $type->id }}" id="{{ $type->id }}"
-                                                @if (old('types', $restaurant->types->pluck('id')->toArray()) &&
-                                                        in_array($type->id, old('types', $restaurant->types->pluck('id')->toArray()))) checked @endif>
-                                            <label class="form-check-label"
-                                                for="{{ $type->id }}">{{ $type->name }}</label>
+                                    <!-- Mostra messaggio di errore se nessuna checkbox è selezionata -->
+                                    @error('types')
+                                        <div class="invalid-feedback d-block">
+                                            {{ $message }}
                                         </div>
-                                    @endforeach
+                                    @enderror
                                 </div>
                             </div>
 
                             <div class="mb-3">
                                 <label for="image_path" class="form-label">Immagine del Ristorante</label>
-                                <input class="form-control border-orange" type="file" id="image_path" name="image_path"
-                                    value="{{ old('image_path', $restaurant->image_path) }}">
+                                <input class="form-control border-orange" type="file" id="image_path"
+                                    name="image_path">
+                                <img src="{{ asset('storage/' . $restaurant->image_path) }}" alt="Piatto"
+                                    class="img-fluid mt-3" style="max-height: 200px;">
                             </div>
 
                         </div>
 
                         <div class="card-footer bg-orange text-end d-flex justify-content-between">
-                            <button class="btn btn-outline-brown" type="submit">
-                                Modifica
                             </button>
                             <a href="{{ route('admin.Restaurants.index') }}" class="btn btn-outline-brown"
                                 as="button">Torna al Ristorante</a>
+                            <script>
+                                // Rendi disponibile l'array degli indirizzi come variabile globale
+                                window.restaurantAddresses = @json($restaurantAddresses);
+                            </script>
+                            <button id="crea-ristorante" class="btn btn-outline-brown" type="submit">
+                                Modifica
 
                         </div>
                     </form>

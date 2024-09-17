@@ -38,7 +38,12 @@ class RestaurantController extends Controller
     {
         $types = Type::all();
         $plates = Plate::all();
-        return view('admin.restaurants.create', compact('types', 'plates'));
+        $restaurants = Restaurant::all();
+
+        // Estrai solo gli indirizzi
+        $restaurantAddresses = $restaurants->pluck('address')->toArray();
+
+        return view('admin.restaurants.create', compact('types', 'plates', 'restaurantAddresses'));
     }
 
     /**
@@ -87,8 +92,12 @@ class RestaurantController extends Controller
     public function edit(restaurant $restaurant)
     {
         $types = Type::all();
+        $restaurants = Restaurant::all();
+
+        // Estrai solo gli indirizzi
+        $restaurantAddresses = $restaurants->pluck('address')->toArray();
     
-        return view('admin.Restaurants.edit',compact('restaurant','types'));
+        return view('admin.Restaurants.edit',compact('restaurant','types', 'restaurantAddresses'));
     }
 
     /**

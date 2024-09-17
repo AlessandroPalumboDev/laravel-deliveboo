@@ -16,6 +16,8 @@
 
     <!-- Usando Vite -->
     @vite(['resources/js/app.js'])
+    {{-- @vite(['resources/js/validation/passwordValidation.js'])
+    @vite(['resources/js/validation/addressValidation.js']) --}}
 </head>
 
 <body class="bg-dark">
