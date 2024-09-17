@@ -27,7 +27,7 @@
                     <div class="logo_laravel d-flex align-items-center">
 
                         <img src="{{ asset('images/logo3.png') }}" alt="Logo"
-                            style="width: 230px; height: 80px; margin-right: 10px;">
+                            style="width: 200px; height: 95px; margin-right: 10px;">
 
                         {{-- <h3 class="text-white mb-0">
                             DELIVEBOO
@@ -70,8 +70,10 @@
                                     {{ Auth::user()->name }}
                                 </a>
 
-                                <div class="dropdown-menu dropdown-menu-right bg-dark-light " aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item text-orange" href="{{ route('admin.Restaurants.index') }}">Il tuo
+                                <div class="dropdown-menu dropdown-menu-right bg-dark-light "
+                                    aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item text-orange" href="{{ route('admin.Restaurants.index') }}">Il
+                                        tuo
                                         ristorante</a>
                                     <a class="dropdown-item text-orange" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
