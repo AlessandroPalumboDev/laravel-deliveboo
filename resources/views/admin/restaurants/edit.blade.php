@@ -47,7 +47,8 @@
                                                 <input class="form-check-input border-orange 
                                                     @error('types') is-invalid @enderror" 
                                                     type="checkbox" name="types[]" id="type-{{ $type->id }}" 
-                                                    value="{{ $type->id }}" {{ in_array($type->id, old('types', [])) ? 'checked' : '' }} />
+                                                    value="{{ $type->id }}" @if (old('types', $restaurant->types->pluck('id')->toArray()) &&
+                                                        in_array($type->id, old('types', $restaurant->types->pluck('id')->toArray()))) checked @endif>
                                                 <label class="form-check-label" for="type-{{ $type->id }}">{{ $type->name }}</label>
                                             </div>
                                         @endforeach
@@ -61,6 +62,8 @@
                                     @enderror
                                 </div>
                             </div>
+
+                            
 
                             <div class="mb-3">
                                 <label for="image_path" class="form-label">Immagine del Ristorante</label>
