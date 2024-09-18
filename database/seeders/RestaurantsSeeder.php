@@ -32,17 +32,17 @@ class RestaurantsSeeder extends Seeder
                 [
                     'name' => 'mc donald',
                     'address' => 'Via Roma, 10',
-                    'image_path' => 'mcdonald.jpg',
+                    'image_path' => 'uploads/restaurant.jpeg',
                 ],
                 [
                     'name' => 'la napoli',
                     'address' => 'Via Napoli, 25',
-                    'image_path' => 'lanapoli.jpg',
+                    'image_path' => 'uploads/restaurant.jpeg',
                 ],
                 [
                     'name' => 'il carbonaro',
                     'address' => 'Via Milano, 30',
-                    'image_path' => 'ilcarbonaro.jpg',
+                    'image_path' => 'uploads/restaurant.jpeg',
                 ]
             ];
 
