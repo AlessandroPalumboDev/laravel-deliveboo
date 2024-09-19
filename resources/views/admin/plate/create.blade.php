@@ -6,6 +6,11 @@
     <div class="container mt-4">
         <div class="row justify-content-center">
             <div class="col-lg-8">
+                <a href="{{ route('admin.Plates.index') }}">
+                    <button class="btn btn-outline-orange   mb-3">
+                        Indietro
+                    </button>
+                </a>
                 <div class="card shadow-lg rounded-3 bg-dark-light text-light">
                     <div class="card-header card-header-orange text-center ">
                         <h1 class="mb-0">{{ __('Crea il tuo piatto') }}</h1>
@@ -98,7 +103,7 @@
 
                         <div class="card-footer card-footer-orange d-flex justify-content-between">
                             <a href="{{ route('admin.Plates.index') }}">
-                                <button class="btn btn-outline-brown">
+                                <button type="button" class="btn btn-outline-brown" >
                                     Annulla
                                 </button>
                             </a>
@@ -106,9 +111,10 @@
                                 Crea
                             </button>
                         </div>
-                </div>
-
+                    </div>
+                    
                 </form>
+                
             </div>
         </div>
     </div>

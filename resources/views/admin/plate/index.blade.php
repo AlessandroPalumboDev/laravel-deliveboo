@@ -7,10 +7,10 @@
 
                 @if ($plates && $plates->count() > 0)
                     <div class="col d-flex justify-content-around">
-                        <a href="{{ route('admin.Plates.create') }}" class="btn btn-outline-orange   mb-3">Aggiungi un
-                            piatto</a>
                         <a href="{{ route('admin.Restaurants.index') }}" class="btn btn-outline-orange   mb-3">Torna al tuo
                             ristorante</a>
+                        <a href="{{ route('admin.Plates.create') }}" class="btn btn-outline-orange   mb-3">Aggiungi un
+                            piatto</a>
                     </div>
                     @foreach ($plates as $plate)
                         <div class="card mb-4 shadow-lg bg-dark-light text-light rounded-3">
