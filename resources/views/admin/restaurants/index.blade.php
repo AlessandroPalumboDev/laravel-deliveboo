@@ -23,18 +23,24 @@
                                 <div class="col-md-8 my-3 ms-3">
                                     <!-- Titoli Arancioni -->
                                     <h4 class="card-title orange">{{ $restaurant->business_name }}</h4>
-                                    <p class="card-text "><span class="orange">Indirizzo:</span> {{ $restaurant->address }}</p>
+                                    <p class="card-text "><span class="orange">Indirizzo:</span> {{ $restaurant->address }}
+                                    </p>
 
                                     @foreach ($users as $user)
-                                        <p class="card-text"><span class="orange">Proprietario:</span> <strong>{{ $user->name }}
-                                                {{ $user->surname }}</strong></p>
-                                        <p class="card-text"><span class="orange">Partita IVA:</span> <strong>{{ $user->p_iva }}</strong></p>
+                                        <p class="card-text"><span class="orange">Proprietario:</span>
+                                            <strong>{{ $user->name }}
+                                                {{ $user->surname }}</strong>
+                                        </p>
+                                        <p class="card-text"><span class="orange">Partita IVA:</span>
+                                            <strong>{{ $user->p_iva }}</strong>
+                                        </p>
                                     @endforeach
 
                                     <div class="d-flex gap-3">
                                         <a href="{{ route('admin.Plates.index') }}" class="btn btn-outline-orange">I miei
                                             Piatti</a>
-                                        <a href="#" class="btn btn-outline-orange">I miei Ordini</a>
+                                        <a href="{{ route('admin.orders.index') }}" c#" class="btn btn-outline-orange">I
+                                            miei Ordini</a>
                                     </div>
                                 </div>
                             </div>
@@ -71,8 +77,7 @@
                                         <button type="button" class="btn btn-outline-orange"
                                             data-bs-dismiss="modal">Annulla</button>
 
-                                        <form action="{{ route('admin.Restaurants.destroy', $restaurant) }}"
-                                            method="POST">
+                                        <form action="{{ route('admin.Restaurants.destroy', $restaurant) }}" method="POST">
                                             @csrf
                                             @method('DELETE')
                                             <button type="submit" class="btn btn-outline-danger">Elimina</button>
@@ -83,15 +88,17 @@
                         </div>
                     @endforeach
                 @else
-                <div class="card bg-dark-light shadow-lg rounded-3">   
-                    <div class="card-body text-center">
-                     
-                        <h4 class="text-light">Non hai ancora creato il tuo ristorante!</h4>
-                        <p class="text-light">Clicca qui sotto per creare subito il tuo ristorante e iniziare a vendere.</p>
-                        <a href="{{ route('admin.Restaurants.create') }}" class="btn btn-outline-orange btn-lg">Crea il tuo
-                            Ristorante</a>
+                    <div class="card bg-dark-light shadow-lg rounded-3">
+                        <div class="card-body text-center">
+
+                            <h4 class="text-light">Non hai ancora creato il tuo ristorante!</h4>
+                            <p class="text-light">Clicca qui sotto per creare subito il tuo ristorante e iniziare a vendere.
+                            </p>
+                            <a href="{{ route('admin.Restaurants.create') }}" class="btn btn-outline-orange btn-lg">Crea il
+                                tuo
+                                Ristorante</a>
+                        </div>
                     </div>
-                </div>
                 @endif
             </div>
         </div>

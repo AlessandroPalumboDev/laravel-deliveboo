@@ -5,6 +5,7 @@ use App\Http\Controllers\admin\RestaurantController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\OrderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,16 +23,22 @@ Route::get('/', function () {
 });
 
 Route::middleware('auth', 'verified')
-->name('admin.')
-->prefix('admin')
-->group(function(){
-Route::get('/',[DashboardController::class,'index'])->name('dashboard');
+    ->name('admin.')
+    ->prefix('admin')
+    ->group(function () {
+        Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 
-    Route::resource('Restaurants', RestaurantController::class)->parameters([
-        'Restaurants'=>'restaurant:slug',
-    ]);
-    Route::resource('Plates', PlateController::class)->parameters([
-        'Plates'=>'plate:slug',
-    ]);
-});
-require __DIR__.'/auth.php';
+        Route::resource('Restaurants', RestaurantController::class)->parameters([
+            'Restaurants' => 'restaurant:slug',
+        ]);
+        Route::resource('Plates', PlateController::class)->parameters([
+            'Plates' => 'plate:slug',
+        ]);
+    });
+
+Route::get('/admin/orders', [OrderController::class, 'index'])->name('admin.orders.index');
+
+Route::get('/admin/orders/{order}', [OrderController::class, 'show'])->name('admin.orders.show');
+
+
+require __DIR__ . '/auth.php';

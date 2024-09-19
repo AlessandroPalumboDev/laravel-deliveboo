@@ -13,7 +13,7 @@ class OrderController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.orders.index');
     }
 
     /**
@@ -35,9 +35,10 @@ class OrderController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(order $order)
+    public function show($id)
     {
-        //
+        $order = Order::findOrFail($id);
+        return view('admin.orders.show', compact('order'));
     }
 
     /**
