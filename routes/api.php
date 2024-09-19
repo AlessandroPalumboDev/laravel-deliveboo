@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\RestaurantController;
 use App\Http\Controllers\Api\PlateController;
+use App\Http\Controllers\BraintreeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,3 +33,7 @@ Route::get('plates/{id}', [PlateController::class, 'show']);
 
 // Rotta per ottenere tutti i tipi
 Route::get('types', [RestaurantController::class, 'getTypes']);
+
+Route::get('/braintree/token', [BraintreeController::class, 'generateToken']);
+
+Route::post('/braintree/checkout', [BraintreeController::class, 'processPayment']);
