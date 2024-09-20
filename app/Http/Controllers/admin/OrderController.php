@@ -1,19 +1,37 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\admin;
 
-use App\Models\order;
+use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreorderRequest;
 use App\Http\Requests\UpdateorderRequest;
+use App\Models\Order;
+use App\Models\Plate;
+use App\Models\Restaurant;
+
+
 
 class OrderController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
-    {
-        return view('admin.orders.index');
+    public function index(){
+
+        $userId = auth()->id();
+
+        // Recupera solo i ristoranti associati a questo utente
+        $restaurant = Restaurant::where('user_id', $userId)->get();
+        //trasformo la collection in array
+        $restaurants = collect($restaurant)->toArray();
+
+        //associo la prima chiave dell'array che so essere l'id
+        $orders= Order::where('restaurant_id', $restaurants[0])->get();
+
+
+        // $plates = Plate::where();
+        
+        return view('admin.orders.index', compact('restaurant', 'orders' ));
     }
 
     /**
@@ -37,8 +55,9 @@ class OrderController extends Controller
      */
     public function show($id)
     {
-        $order = Order::findOrFail($id);
-        return view('admin.orders.show', compact('order'));
+        $order = order::findOrFail($id);
+        $plate = Plate::findOrFail($id);
+        return view('admin.orders.show', compact('order', 'plate'));
     }
 
     /**

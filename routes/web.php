@@ -5,7 +5,7 @@ use App\Http\Controllers\admin\RestaurantController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\OrderController;
+use App\Http\Controllers\admin\OrderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -34,11 +34,10 @@ Route::middleware('auth', 'verified')
         Route::resource('Plates', PlateController::class)->parameters([
             'Plates' => 'plate:slug',
         ]);
+        
+        // Rotte per gli ordini
+        Route::get('/orders', [OrderController::class, 'index'])->name('orders.index');
+        Route::get('/orders/{order}', [OrderController::class, 'show'])->name('orders.show');
     });
-
-Route::get('/admin/orders', [OrderController::class, 'index'])->name('admin.orders.index');
-
-Route::get('/admin/orders/{order}', [OrderController::class, 'show'])->name('admin.orders.show');
-
 
 require __DIR__ . '/auth.php';
