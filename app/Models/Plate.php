@@ -14,7 +14,7 @@ class Plate extends Model
     }
 
     public function orders(){
-        return $this->belongsToMany('\App\Models\Order');
+        return $this->belongsToMany(Order::class, 'plate_order');
     }
     use HasFactory;
 }

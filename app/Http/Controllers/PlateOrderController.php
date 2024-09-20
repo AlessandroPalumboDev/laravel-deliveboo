@@ -21,7 +21,9 @@ class PlateOrderController extends Controller
      */
     public function create()
     {
-        //
+        // $new_plate_order->order_id = 1; 
+        // $new_plate_order->plate_id = 2; 
+        // $new_plate_order->quantity = 3;
     }
 
     /**

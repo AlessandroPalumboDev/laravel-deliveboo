@@ -3,12 +3,20 @@
 @section('content')
     <div class="container mt-5">
         <h2 class="text-white">Dettagli Ordine #{{ $order->id }}</h2>
+        {{-- @dd($order->plates) --}}
 
         <div class="card bg-dark-light text-white">
             <div class="card-body">
                 <p><strong>Nome Cliente:</strong> {{ $order->name }}</p>
                 <p><strong>Indirizzo Cliente:</strong> {{ $order->delivery_address }}</p>
-                <p><strong>Piatti:</strong> {{ $order->plates }}</p>
+                <p><strong>Piatti:</strong></p>
+                <ul>
+                    <li>
+                        <span>
+                            {{$order->pivot}}
+                        </span>
+                    </li>
+                </ul>
                 <p><strong>Totale:</strong> €{{ $order->total_price }}</p>
                 <p><strong>Stato:</strong> {{ $order->order_status }}</p>
                 <a href="{{ route('admin.orders.index') }}" class="btn btn-outline-orange">Torna agli Ordini</a>

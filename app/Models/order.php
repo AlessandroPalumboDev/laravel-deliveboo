@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Order extends Model
 {
     public function plates(){
-        return $this->belongsToMany('App\Models\Plate');
+        return $this->belongsToMany(Plate::class, 'plate_order');
     }
     public function restaurant()
     {
