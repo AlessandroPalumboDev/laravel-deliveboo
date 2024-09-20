@@ -10,5 +10,9 @@ class Order extends Model
     public function plates(){
         return $this->belongsToMany('App\Models\Plate');
     }
+    public function restaurant()
+    {
+        return $this->belongsTo(Restaurant::class);
+    }
     use HasFactory;
 }
