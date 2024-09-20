@@ -54,12 +54,13 @@ class OrderController extends Controller
      * Display the specified resource.
      */
     public function show($id)
-    {
-        $order = order::findOrFail($id);
-        // dd($order);
-        
-        return view('admin.orders.show', compact('order'));
-    }
+{
+    // Usa 'with' per caricare la relazione 'plates' con i dati della tabella pivot 'quantity'
+    $order = Order::with('plates')->findOrFail($id);
+    
+    return view('admin.orders.show', compact('order'));
+}
+
 
     /**
      * Show the form for editing the specified resource.
