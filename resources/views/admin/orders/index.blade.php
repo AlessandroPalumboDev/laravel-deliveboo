@@ -11,15 +11,15 @@
 
 
                 <div class="table-responsive">
-                    <table class="table table-dark table-hover align-middle">
+                    <table class="table table-dark table-striped table-hover align-middle">
                         <thead class="thead-light">
                             <tr>
-                                <th>Data</th>
-                                <th class="d-none d-md-table-cell">Nome Cliente</th>
-                                <th class="d-none d-md-table-cell">Indirizzo Cliente</th>
-                                <th>Totale</th>
-                                <th>Stato</th>
-                                <th>Dettagli</th>
+                                <th><span >Data</span></th>
+                                <th class="d-none d-md-table-cell"><span >Nome Cliente</span></th>
+                                <th class="d-none d-md-table-cell"><span >Indirizzo Cliente</span></th>
+                                <th><span >Totale</span></th>
+                                <th><span >Stato</span></th>
+                                <th><span >Dettagli</span></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -27,14 +27,14 @@
                             {{-- ordini --}}
                             @foreach ($orders as $order)
                                 <tr>
-                                    <td>2024-09-19</td>
+                                    <td>{{$order->created_at}}</td>
                                     <td class="d-none d-md-table-cell">{{$order->name}}</td>
                                     <td class="d-none d-md-table-cell">{{$order->delivery_address}}</td>
                                     <td>{{$order->total_price}}</td>
                                     <td><span class="badge bg-success">{{$order->order_status}}</span></td>
                                     <td>
                                         <a href="{{ route('admin.orders.show', 1) }}"
-                                            class="btn btn-outline-light btn-sm">Dettagli Ordine</a>
+                                            class="btn btn-outline-orange btn-sm">Dettagli Ordine</a>
                                     </td>
                                 </tr>
                             @endforeach
