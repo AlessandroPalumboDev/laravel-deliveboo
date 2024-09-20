@@ -113,3 +113,10 @@
 .bg-dark-light {
     background-color: rgba($color: #33333381, $alpha: 1);
 }
+
+.lista-piatti {
+    li {
+        list-style: none;
+        margin-top: 10px;
+    }
+}

@@ -15,8 +15,9 @@
                         <thead class="thead-light">
                             <tr>
                                 <th><span >Data</span></th>
-                                <th class="d-none d-md-table-cell"><span >Nome Cliente</span></th>
-                                <th class="d-none d-md-table-cell"><span >Indirizzo Cliente</span></th>
+                                <th class="d-none d-md-table-cell"><span >Nome </span></th>
+                                <th class="d-none d-md-table-cell"><span >Cognome </span></th>
+                                <th class="d-none d-md-table-cell"><span >Indirizzo</span></th>
                                 <th><span >Totale</span></th>
                                 <th><span >Stato</span></th>
                                 <th><span >Dettagli</span></th>
@@ -29,6 +30,7 @@
                                 <tr>
                                     <td>{{$order->created_at}}</td>
                                     <td class="d-none d-md-table-cell">{{$order->name}}</td>
+                                    <td class="d-none d-md-table-cell">{{$order->surname}}</td>
                                     <td class="d-none d-md-table-cell">{{$order->delivery_address}}</td>
                                     <td>{{$order->total_price}}</td>
                                     <td><span class="badge bg-success">{{$order->order_status}}</span></td>
