@@ -6,10 +6,11 @@
 
         <div class="card bg-dark-light text-white">
             <div class="card-body">
-                <p><strong>Nome Cliente:</strong> {{ $order->customer_name }}</p>
-                <p><strong>Indirizzo Cliente:</strong> {{ $order->customer_address }}</p>
-                <p><strong>Totale:</strong> €{{ $order->total }}</p>
-                <p><strong>Stato:</strong> {{ $order->status }}</p>
+                <p><strong>Nome Cliente:</strong> {{ $order->name }}</p>
+                <p><strong>Indirizzo Cliente:</strong> {{ $order->delivery_address }}</p>
+                <p><strong>Piatti:</strong> {{ $order->plates }}</p>
+                <p><strong>Totale:</strong> €{{ $order->total_price }}</p>
+                <p><strong>Stato:</strong> {{ $order->order_status }}</p>
                 <a href="{{ route('admin.orders.index') }}" class="btn btn-outline-orange">Torna agli Ordini</a>
             </div>
         </div>
