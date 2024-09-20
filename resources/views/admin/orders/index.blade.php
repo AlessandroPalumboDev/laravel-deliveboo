@@ -4,9 +4,14 @@
     <div class="container mt-5">
         <div class="row justify-content-center">
             <div class="col-lg-10">
-                <a href="{{ route('admin.Restaurants.index') }}" class="btn btn-outline-orange mb-3">
-                    Torna al Ristorante
-                </a>
+                <div class="d-flex justify-content-between">
+                    <a href="{{ route('admin.Restaurants.index') }}" class="btn btn-outline-orange mb-3">
+                        Torna al Ristorante
+                    </a>
+                    <a href="{{ route('admin.orders.statistics') }}" class="btn btn-outline-orange mb-3">
+                        Statistiche Ordini
+                    </a>
+                </div>
                 <h2 class="mb-4 text-white">I miei Ordini</h2>
 
 
@@ -35,7 +40,7 @@
                                     <td>{{$order->total_price}}</td>
                                     <td><span class="badge bg-success">{{$order->order_status}}</span></td>
                                     <td>
-                                        <a href="{{ route('admin.orders.show', 1) }}"
+                                        <a href="{{ route('admin.orders.show', $order->id) }}"
                                             class="btn btn-outline-orange btn-sm">Dettagli Ordine</a>
                                     </td>
                                 </tr>

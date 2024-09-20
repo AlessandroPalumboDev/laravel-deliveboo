@@ -38,6 +38,9 @@ Route::middleware('auth', 'verified')
         // Rotte per gli ordini
         Route::get('/orders', [OrderController::class, 'index'])->name('orders.index');
         Route::get('/orders/{order}', [OrderController::class, 'show'])->name('orders.show');
+
+        // Rotte per le statistiche
+        Route::get('/statistics', [OrderController::class, 'statistics'])->name('orders.statistics');
     });
 
 require __DIR__ . '/auth.php';

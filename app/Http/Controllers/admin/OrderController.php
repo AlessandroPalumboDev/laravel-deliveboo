@@ -54,12 +54,28 @@ class OrderController extends Controller
      * Display the specified resource.
      */
     public function show($id)
-{
+    {
     // Usa 'with' per caricare la relazione 'plates' con i dati della tabella pivot 'quantity'
     $order = Order::with('plates')->findOrFail($id);
     
     return view('admin.orders.show', compact('order'));
-}
+    }
+
+
+    public function statistics()
+    {
+        $userId = auth()->id();
+
+        // Recupera solo i ristoranti associati a questo utente
+        $restaurant = Restaurant::where('user_id', $userId)->get();
+        //trasformo la collection in array
+        $restaurants = collect($restaurant)->toArray();
+
+        //associo la prima chiave dell'array che so essere l'id
+        $orders= Order::where('restaurant_id', $restaurants[0])->get();
+    
+    return view('admin.orders.statistics', compact('restaurant','orders'));
+    }
 
 
     /**
