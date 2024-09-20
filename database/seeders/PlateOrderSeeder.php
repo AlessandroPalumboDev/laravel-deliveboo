@@ -19,16 +19,87 @@ class PlateOrderSeeder extends Seeder
     {
 
         Schema::disableForeignKeyConstraints();
-        
-        for($i = 0; $i < 4; $i++){
-            $new_plate_order = new PlateOrder();
 
-            $new_plate_order->order_id = 1; //Order::inRandomOrder()->first()->id;
-            $new_plate_order->plate_id = 2; //Plate::inRandomOrder()->first()->id;
-            $new_plate_order->quantity = 1;   
 
-            $new_plate_order->save();
-        }
+            // ordine 1 
+            PlateOrder::create([
+            'order_id' => 1, 
+            'plate_id' => 1, 
+            'quantity' => 2,
+            ]);
+
+            PlateOrder::create([
+            'order_id' => 1, 
+            'plate_id' => 2, 
+            'quantity' => 4,
+            ]);
+
+            PlateOrder::create([
+            'order_id' => 1, 
+            'plate_id' => 3, 
+            'quantity' => 8,
+            ]);
+
+
+            // ordine 2
+            PlateOrder::create([
+            'order_id' => 2, 
+            'plate_id' => 1, 
+            'quantity' => 2,
+            ]);
+
+            PlateOrder::create([
+            'order_id' => 2, 
+            'plate_id' => 2, 
+            'quantity' => 4,
+            ]);
+
+            PlateOrder::create([
+            'order_id' => 2, 
+            'plate_id' => 3, 
+            'quantity' => 8,
+            ]);
+
+
+            // ordine 3
+            PlateOrder::create([
+            'order_id' => 3, 
+            'plate_id' => 1, 
+            'quantity' => 2,
+            ]);
+
+            PlateOrder::create([
+            'order_id' => 3, 
+            'plate_id' => 2, 
+            'quantity' => 4,
+            ]);
+
+            PlateOrder::create([
+            'order_id' => 3, 
+            'plate_id' => 3, 
+            'quantity' => 8,
+            ]);
+
+
+            // ordine 4
+            PlateOrder::create([
+            'order_id' => 4, 
+            'plate_id' => 1, 
+            'quantity' => 2,
+            ]);
+
+            PlateOrder::create([
+            'order_id' => 4, 
+            'plate_id' => 2, 
+            'quantity' => 4,
+            ]);
+
+            PlateOrder::create([
+            'order_id' => 4, 
+            'plate_id' => 3, 
+            'quantity' => 8,
+            ]);
+
 
         Schema::enableForeignKeyConstraints();
 
