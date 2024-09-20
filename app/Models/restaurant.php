@@ -21,6 +21,10 @@ class Restaurant extends Model
     {
         return $this->hasMany(Plate::class);
     }
+    public function order()
+    {
+        return $this->hasMany(Plate::class);
+    }
 
     use HasFactory;
 }
