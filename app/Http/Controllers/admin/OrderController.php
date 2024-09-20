@@ -63,19 +63,32 @@ class OrderController extends Controller
 
 
     public function statistics()
-    {
-        $userId = auth()->id();
+{
+    $userId = auth()->id();
 
-        // Recupera solo i ristoranti associati a questo utente
-        $restaurant = Restaurant::where('user_id', $userId)->get();
-        //trasformo la collection in array
-        $restaurants = collect($restaurant)->toArray();
+    // Recupera il ristorante associato a questo utente
+    $restaurant = Restaurant::where('user_id', $userId)->firstOrFail();
 
-        //associo la prima chiave dell'array che so essere l'id
-        $orders= Order::where('restaurant_id', $restaurants[0])->get();
-    
-    return view('admin.orders.statistics', compact('restaurant','orders'));
-    }
+    // Ottieni i dati degli ordini raggruppati per mese e anno
+    $ordersData = Order::where('restaurant_id', $restaurant->id)
+        ->selectRaw('YEAR(created_at) as year, MONTH(created_at) as month, COUNT(*) as order_count, SUM(total_price) as total_sales')
+        ->groupBy('year', 'month')
+        ->orderBy('year', 'asc')  // Ordina prima per anno in modo crescente
+        ->orderBy('month', 'asc') // Ordina poi per mese in modo crescente
+        ->get();
+
+    // Crea array di labels e valori per il grafico
+    $labels = $ordersData->map(fn($order) => $order->month . '/' . $order->year)->toArray();
+    $orderCounts = $ordersData->pluck('order_count')->toArray();
+    $totalSales = $ordersData->pluck('total_sales')->toArray();
+
+    // Passa i dati alla vista
+    return view('admin.orders.statistics', compact('labels', 'orderCounts', 'totalSales'));
+}
+
+
+
+
 
 
     /**
