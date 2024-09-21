@@ -31,6 +31,7 @@
 
 <div class="container py-5">
     <h1 class="mb-4 text-center" >Statistiche Ordini</h1>
+    <a href="{{ route('admin.orders.index') }}" class="btn btn-outline-orange mb-4">Torna agli Ordini</a>
     
     <div class="row">
         <div class="col-md-6 mb-4">
