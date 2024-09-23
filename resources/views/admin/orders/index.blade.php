@@ -14,7 +14,7 @@
             </div>
             <h2 class="mb-4 text-white">I miei Ordini</h2>
 
-            <div class="table-responsive" style="max-height: 800px; overflow-y: auto;">
+            <div class="table-responsive mb-5" style="max-height: 800px; overflow-y: auto;">
                 <table class="table table-dark table-striped table-hover align-middle">
                     <thead class="thead-light">
                         <tr>
