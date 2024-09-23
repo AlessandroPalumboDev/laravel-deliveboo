@@ -23,7 +23,6 @@ class StoreorderRequest extends FormRequest
             'plates' => 'required|array',
             'plates.*.plate_id' => 'required|exists:plates,id',
             'plates.*.quantity' => 'required|integer|min:1',
-            'paymentMethodNonce' => 'required|string',
         ];
     }
 }

@@ -1,42 +1,33 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreorderRequest;
+use App\Http\Requests\UpdateorderRequest;
 use App\Models\Order;
-use Illuminate\Http\Request;
+use App\Models\Plate;
+use App\Models\Restaurant;
+
+
 
 class OrderController extends Controller
 {
-    public function storeOrderData(Request $request)
-{
-    // Validazione dei dati
-    $validatedData = $request->validate([
-        'name' => 'required|string|max:255',
-        'surname' => 'required|string|max:255',
-        'email_address' => 'required|email',
-        'delivery_address' => 'required|string',
-        'total_price' => 'required|numeric',
-        'plates' => 'required|array',
-        'plates.*.plate_id' => 'required|integer',
-        'plates.*.quantity' => 'required|integer',
-    ]);
 
-    // Creare l'ordine
-    $order = Order::create([
-        'name' => $validatedData['name'],
-        'surname' => $validatedData['surname'],
-        'email_address' => $validatedData['email_address'],
-        'delivery_address' => $validatedData['delivery_address'],
-        'total_price' => $validatedData['total_price'],
-    ]);
-
-    // Aggiungi i piatti con la quantità alla tabella pivot
-    foreach ($validatedData['plates'] as $plate) {
-        $order->plates()->attach($plate['plate_id'], ['quantity' => $plate['quantity']]);
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function create()
+    {
+        //
     }
 
-    return response()->json(['success' => true, 'message' => 'Ordine salvato con successo.']);
-}
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store(StoreorderRequest $request)
+    {
+        //
+    }
 
 }

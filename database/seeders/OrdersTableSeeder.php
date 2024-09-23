@@ -32,7 +32,6 @@ class OrdersTableSeeder extends Seeder
                 'email_address' => 'alessandro.palumbo@example.com',
                 'order_status' => 'In preparazione',
                 'delivery_time' => now()->addHours(2),
-                'slug' => Str::slug('Ordine 1'),
                 'note' => '',
                 'created_at' => now(),
                 'updated_at' => now(),
@@ -46,7 +45,6 @@ class OrdersTableSeeder extends Seeder
                 'email_address' => 'mario.rossi@example.com',
                 'order_status' => 'In preparazione',
                 'delivery_time' => now()->addHours(2),
-                'slug' => Str::slug('Ordine 2'),
                 'note' => 'Nessuna nota',
                 'created_at' => now(),
                 'updated_at' => now(),
@@ -60,7 +58,6 @@ class OrdersTableSeeder extends Seeder
                 'email_address' => 'luca.bianchi@example.com',
                 'order_status' => 'Consegnato',
                 'delivery_time' => now()->subDays(1),
-                'slug' => Str::slug('Ordine 3'),
                 'note' => 'Consegna senza contatto',
                 'created_at' => now(),
                 'updated_at' => now(),
@@ -74,7 +71,6 @@ class OrdersTableSeeder extends Seeder
                 'email_address' => 'giulia.verdi@example.com',
                 'order_status' => 'In ritardo',
                 'delivery_time' => now()->addHours(1),
-                'slug' => Str::slug('Ordine 4'),
                 'note' => 'Chiamare al citofono',
                 'created_at' => now(),
                 'updated_at' => now(),
@@ -92,7 +88,6 @@ class OrdersTableSeeder extends Seeder
             $order->email_address = $orderData['email_address'];
             $order->order_status = $orderData['order_status'];
             $order->delivery_time = $orderData['delivery_time'];
-            $order->slug = $orderData['slug'];
             $order->note = $orderData['note'];
             $order->created_at = $orderData['created_at'];
             $order->updated_at = $orderData['updated_at'];
