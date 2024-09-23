@@ -29,7 +29,7 @@ class OrderController extends Controller
         $restaurants = collect($restaurant)->toArray();
 
         //associo la prima chiave dell'array che so essere l'id
-        $orders= Order::where('restaurant_id', $restaurants[0])->get();
+        $orders= Order::where('restaurant_id', $restaurants[0])->orderBy('created_at', 'desc')->get();
 
 
         // $plates = Plate::where();

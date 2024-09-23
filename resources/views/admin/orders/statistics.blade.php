@@ -38,7 +38,7 @@
             <div class="card shadow">
                 <div class="card-body">
                     <h3 class="card-title">Distribuzione Ordini per Mese/Anno</h3>
-                    <canvas id="orderPieChart"></canvas>
+                    <canvas id="orderDistributionChart"></canvas>
                 </div>
             </div>
         </div>
@@ -96,38 +96,56 @@
         );
     }
 
-    // Grafico a Torta per Numero di Ordini
-    new Chart(document.getElementById('orderPieChart').getContext('2d'), {
-        type: 'pie',
-        data: {
-            labels: labels,
-            datasets: [{
-                data: orderCounts,
-                backgroundColor: generateOrangeShades(labels.length),
-                borderColor: backgroundColor,
-                borderWidth: 1
-            }]
+    // Grafico a Barre Orizzontali per Numero di Ordini
+new Chart(document.getElementById('orderDistributionChart').getContext('2d'), {
+    type: 'bar',
+    data: {
+        labels: labels,
+        datasets: [{
+            label: 'Numero di Ordini',
+            data: orderCounts,
+            backgroundColor: generateOrangeShades(labels.length),
+            borderColor: backgroundColor,
+            borderWidth: 1
+        }]
+    },
+    options: {
+        indexAxis: 'y',
+        responsive: true,
+        plugins: {
+            legend: {
+                display: false
+            },
+            title: {
+                display: true,
+                text: 'Distribuzione Ordini per Mese/Anno',
+                color: primaryColor,
+                font: {
+                    size: 16
+                }
+            }
         },
-        options: {
-            responsive: true,
-            plugins: {
-                legend: {
-                    position: 'right',
-                    labels: { 
-                        color: textColor,
-                        font: {
-                            size: 10
-                        }
-                    }
+        scales: {
+            x: {
+                beginAtZero: true,
+                grid: {
+                    color: 'rgba(255, 255, 255, 0.1)'
                 },
-                title: {
-                    display: true,
-                    text: 'Distribuzione Ordini',
-                    color: primaryColor
+                ticks: {
+                    color: textColor
+                }
+            },
+            y: {
+                grid: {
+                    display: false
+                },
+                ticks: {
+                    color: textColor
                 }
             }
         }
-    });
+    }
+});
 
     // Grafico Ammontare delle Vendite
     new Chart(document.getElementById('salesChart').getContext('2d'), {
