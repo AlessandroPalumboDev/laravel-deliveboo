@@ -2,11 +2,9 @@
 
 namespace Database\Seeders;
 
-use App\Models\restaurant;
+use App\Models\Restaurant;
 use App\Models\User;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use Illuminate\Redis\Connections\PredisClusterConnection;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Str;
@@ -19,60 +17,40 @@ class RestaurantsSeeder extends Seeder
     public function run(): void
     {
         Schema::disableForeignKeyConstraints();
-            DB::table('restaurants')->truncate();
+        DB::table('restaurants')->truncate();
 
-            // prendo dal modello user gli id presenti
+        $restaurants = [
+            ['name' => 'mc donald', 'address' => 'Via Roma, 10', 'image_path' => 'uploads/restaurant.jpeg'],
+            ['name' => 'la napoli', 'address' => 'Via Napoli, 25', 'image_path' => 'uploads/restaurant.jpeg'],
+            ['name' => 'il carbonaro', 'address' => 'Via Milano, 30', 'image_path' => 'uploads/restaurant.jpeg'],
+            ['name' => 'Sakura Sushi', 'address' => 'Via Tokyo, 1', 'image_path' => 'uploads/restaurant.jpeg'],
+            ['name' => 'Ramen House', 'address' => 'Corso Osaka, 15', 'image_path' => 'uploads/restaurant.jpeg'],
+            ['name' => 'Teppanyaki Grill', 'address' => 'Piazza Kyoto, 7', 'image_path' => 'uploads/restaurant.jpeg'],
+            ['name' => 'Izakaya Nights', 'address' => 'Via Sapporo, 22', 'image_path' => 'uploads/restaurant.jpeg'],
+            ['name' => 'Matcha Cafe', 'address' => 'Viale Nara, 5', 'image_path' => 'uploads/restaurant.jpeg'],
+            ['name' => 'Tempura Heaven', 'address' => 'Via Yokohama, 18', 'image_path' => 'uploads/restaurant.jpeg'],
+            ['name' => 'Udon Noodle Bar', 'address' => 'Corso Nagoya, 33', 'image_path' => 'uploads/restaurant.jpeg'],
+            ['name' => 'Bento Box Express', 'address' => 'Piazza Fukuoka, 9', 'image_path' => 'uploads/restaurant.jpeg'],
+            ['name' => 'Yakitori Grille', 'address' => 'Via Kobe, 27', 'image_path' => 'uploads/restaurant.jpeg'],
+            ['name' => 'Soba Noodle House', 'address' => 'Viale Hiroshima, 11', 'image_path' => 'uploads/restaurant.jpeg'],
+        ];
 
-            $userIds = User::pluck('id')->toArray();
-         
-            /**
-             * inserimento dati 
-             */
-            $restaurants = [
-                [
-                    'name' => 'mc donald',
-                    'address' => 'Via Roma, 10',
-                    'image_path' => 'uploads/restaurant.jpeg',
-                ],
-                [
-                    'name' => 'la napoli',
-                    'address' => 'Via Napoli, 25',
-                    'image_path' => 'uploads/restaurant.jpeg',
-                ],
-                [
-                    'name' => 'il carbonaro',
-                    'address' => 'Via Milano, 30',
-                    'image_path' => 'uploads/restaurant.jpeg',
-                ]
-            ];
+        $users = User::all();
 
-            // controllo se cono presenti utenti
-            if (count($userIds) < count($restaurants)) {
-                $this->command->error('Non ci sono abbastanza utenti per assegnare un ristorante a ciascuno.');
-                return;
+        foreach($restaurants as $index => $rest){
+            if (isset($users[$index])) {
+                $restaurant = new Restaurant();
+                $restaurant->user_id = $users[$index]->id;
+                $restaurant->business_name = $rest['name'];
+                $restaurant->image_path = $rest['image_path'];
+                $restaurant->address = $rest['address'];
+                $restaurant->slug = Str::of($restaurant->business_name)->slug('-');
+                $restaurant->save();
+            } else {
+                $this->command->error("Non c'è un utente disponibile per il ristorante: " . $rest['name']);
             }
+        }
 
-            
-            foreach($restaurants as $index => $rest){
-
-            $restaurant= new restaurant();
-        
-
-            $restaurant->user_id=$userIds[$index];
-
-            $restaurant->business_name=$rest['name'];
-    
-            $restaurant->image_path=$rest['image_path'];
-    
-            $restaurant->address=$rest['address'];
-
-            $restaurant->slug=Str::of($restaurant->business_name)->slug('-');
-    
-            
-            $restaurant->save();
-            
-            }
-            Schema::enableForeignKeyConstraints();
-        
+        Schema::enableForeignKeyConstraints();
     }
 }
