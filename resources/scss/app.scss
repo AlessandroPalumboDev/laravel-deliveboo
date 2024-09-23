@@ -120,3 +120,21 @@
         margin-top: 10px;
     }
 }
+
+/* Stile per la scrollbar */
+.table-responsive::-webkit-scrollbar {
+    width: 8px; /* Larghezza della scrollbar */
+}
+
+.table-responsive::-webkit-scrollbar-track {
+    background: transparent; /* Colore dello sfondo della scrollbar */
+}
+
+.table-responsive::-webkit-scrollbar-thumb {
+    background: rgb(255, 140, 0); /* Colore della scrollbar */
+    border-radius: 10px; /* Raggio per arrotondare gli angoli */
+}
+
+.table-responsive::-webkit-scrollbar-thumb:hover {
+    background: #ff4d00; /* Colore della scrollbar quando si passa il mouse */
+}
