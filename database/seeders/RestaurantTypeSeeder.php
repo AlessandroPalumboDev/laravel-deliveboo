@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 use App\Models\RestaurantType;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Schema;
 
@@ -16,72 +15,40 @@ class RestaurantTypeSeeder extends Seeder
     {
         Schema::disableForeignKeyConstraints();
 
-        // for($i = 0; $i < 5; $i++){
-        //     $new_restaurant_type = new RestaurantType();
+        // Existing associations
+        $existingAssociations = [
+            [1, [1, 2, 3, 4]],
+            [2, [4, 5, 6, 7]],
+            [3, [7, 8, 9, 1]],
+        ];
 
-        //     $new_restaurant_type->restaurant_id = 1;
-        //     $new_restaurant_type->type_id = 3;
+        foreach ($existingAssociations as [$restaurantId, $typeIds]) {
+            foreach ($typeIds as $typeId) {
+                RestaurantType::create([
+                    'restaurant_id' => $restaurantId,
+                    'type_id' => $typeId,
+                ]);
+            }
+        }
 
-        //     $new_restaurant_type->save();
-        // }
+        // New Japanese restaurants (IDs 4 to 13)
+        $japaneseTypeId = 4; // Assuming Japanese cuisine type ID is 4
+        $sushiTypeId = 7; // Assuming Sushi type ID is 7
 
-        // Tipologie ristorante 1
-        RestaurantType::create([
-            'restaurant_id' => 1,
-            'type_id' => 1,
-        ]);
-        RestaurantType::create([
-            'restaurant_id' => 1,
-            'type_id' => 2,
-        ]);
-        RestaurantType::create([
-            'restaurant_id' => 1,
-            'type_id' => 3,
-        ]);
-        RestaurantType::create([
-            'restaurant_id' => 1,
-            'type_id' => 4,
-        ]);
+        for ($restaurantId = 4; $restaurantId <= 13; $restaurantId++) {
+            RestaurantType::create([
+                'restaurant_id' => $restaurantId,
+                'type_id' => $japaneseTypeId,
+            ]);
 
-        // Tipologie ristorante 2
-        RestaurantType::create([
-            'restaurant_id' => 2,
-            'type_id' => 4,
-        ]);
-        RestaurantType::create([
-            'restaurant_id' => 2,
-            'type_id' => 5,
-        ]);
-        RestaurantType::create([
-            'restaurant_id' => 2,
-            'type_id' => 6,
-        ]);
-        RestaurantType::create([
-            'restaurant_id' => 2,
-            'type_id' => 7,
-        ]);
-
-        // Tipologie ristorante 3
-        RestaurantType::create([
-            'restaurant_id' => 3,
-            'type_id' => 7,
-        ]);
-        RestaurantType::create([
-            'restaurant_id' => 3,
-            'type_id' => 8,
-        ]);
-        RestaurantType::create([
-            'restaurant_id' => 3,
-            'type_id' => 9,
-        ]);
-        RestaurantType::create([
-            'restaurant_id' => 3,
-            'type_id' => 1,
-        ]);
-
-
-
-
+            // Optionally add Sushi type to some restaurants
+            if (in_array($restaurantId, [4, 5, 8, 11])) {
+                RestaurantType::create([
+                    'restaurant_id' => $restaurantId,
+                    'type_id' => $sushiTypeId,
+                ]);
+            }
+        }
 
         Schema::enableForeignKeyConstraints();
     }
