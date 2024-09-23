@@ -6,9 +6,9 @@ use App\Models\Order;
 use App\Models\Plate;
 use App\Models\PlateOrder;
 use App\Models\Restaurant;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
 
 class PlateOrderSeeder extends Seeder
 {
@@ -17,91 +17,38 @@ class PlateOrderSeeder extends Seeder
      */
     public function run(): void
     {
-
         Schema::disableForeignKeyConstraints();
+        DB::table('plate_order')->truncate();
 
+        $orders = Order::all();
 
-            // ordine 1 
-            PlateOrder::create([
-            'order_id' => 1, 
-            'plate_id' => 1, 
-            'quantity' => 2,
-            ]);
+        foreach ($orders as $order) {
+            $restaurant = Restaurant::find($order->restaurant_id);
+            $plates = $restaurant->plate()->where('is_visible', true)->get();
 
-            PlateOrder::create([
-            'order_id' => 1, 
-            'plate_id' => 2, 
-            'quantity' => 4,
-            ]);
+            if ($plates->isEmpty()) {
+                continue;
+            }
 
-            PlateOrder::create([
-            'order_id' => 1, 
-            'plate_id' => 3, 
-            'quantity' => 8,
-            ]);
+            $orderTotal = 0;
+            $plateCount = rand(1, 5); 
+            for ($i = 0; $i < $plateCount; $i++) {
+                $plate = $plates->random();
+                $quantity = rand(1, 3);
 
+                PlateOrder::create([
+                    'order_id' => $order->id,
+                    'plate_id' => $plate->id,
+                    'quantity' => $quantity,
+                ]);
 
-            // ordine 2
-            PlateOrder::create([
-            'order_id' => 2, 
-            'plate_id' => 1, 
-            'quantity' => 2,
-            ]);
+                $orderTotal += $plate->price * $quantity;
+            }
 
-            PlateOrder::create([
-            'order_id' => 2, 
-            'plate_id' => 2, 
-            'quantity' => 4,
-            ]);
-
-            PlateOrder::create([
-            'order_id' => 2, 
-            'plate_id' => 3, 
-            'quantity' => 8,
-            ]);
-
-
-            // ordine 3
-            PlateOrder::create([
-            'order_id' => 3, 
-            'plate_id' => 1, 
-            'quantity' => 2,
-            ]);
-
-            PlateOrder::create([
-            'order_id' => 3, 
-            'plate_id' => 2, 
-            'quantity' => 4,
-            ]);
-
-            PlateOrder::create([
-            'order_id' => 3, 
-            'plate_id' => 3, 
-            'quantity' => 8,
-            ]);
-
-
-            // ordine 4
-            PlateOrder::create([
-            'order_id' => 4, 
-            'plate_id' => 1, 
-            'quantity' => 2,
-            ]);
-
-            PlateOrder::create([
-            'order_id' => 4, 
-            'plate_id' => 2, 
-            'quantity' => 4,
-            ]);
-
-            PlateOrder::create([
-            'order_id' => 4, 
-            'plate_id' => 3, 
-            'quantity' => 8,
-            ]);
-
+           
+            $order->update(['total_price' => $orderTotal]);
+        }
 
         Schema::enableForeignKeyConstraints();
-
     }
 }
