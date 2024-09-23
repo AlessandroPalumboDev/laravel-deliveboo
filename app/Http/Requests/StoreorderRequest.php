@@ -18,6 +18,7 @@ class StoreorderRequest extends FormRequest
             'surname' => 'required|string|max:50',
             'email_address' => 'required|email|max:50',
             'delivery_address' => 'required|string|max:50',
+            'delivery_time' => 'required||date_format:H:i',
             'total_price' => 'required|numeric|min:0',
             'note' => 'nullable|string',
             'plates' => 'required|array',

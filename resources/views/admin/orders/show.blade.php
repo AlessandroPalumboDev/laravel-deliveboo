@@ -11,6 +11,7 @@
             <ul class="list-group list-group-flush">
                 <li class="list-group-item bg-dark-light text-light"><strong class="text-orange">Nome Cliente: </strong> {{ $order->name }} {{$order->surname}}</li>
                 <li class="list-group-item bg-dark-light text-light"><strong class="text-orange">Indirizzo Cliente: </strong> {{ $order->delivery_address }}</li>
+                <li class="list-group-item bg-dark-light text-light"><strong class="text-orange">Orario Consegna: </strong> {{ $order->delivery_time }}</li>
                 <li class="list-group-item bg-dark-light text-light"><strong class="text-orange">Stato: </strong> {{ $order->order_status }}</li>
                 <li class="list-group-item bg-dark-light text-light"><strong class="text-orange">Totale: </strong> €{{ $order->total_price }}</li>
                 <li class="list-group-item bg-dark-light text-light"><strong class="text-orange">Piatti: </strong>

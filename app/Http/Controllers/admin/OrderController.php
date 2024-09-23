@@ -62,6 +62,7 @@ class OrderController extends Controller
         $order->surname = $request->surname;
         $order->email_address = $request->email_address;
         $order->delivery_address = $request->delivery_address;
+        $order->delivery_time = $request->delivery_time;
         $order->note = $request->note;
         $order->total_price = $request->total_price;
         $order->save();
