@@ -27,9 +27,9 @@ return new class extends Migration
             //indirizzo email cliente
             $table->string('email_address', 50);
             //stato dell'ordine (es: in preparazione/consegnato/in ritardo)
-            $table->string('order_status', 30);
+            $table->string('order_status', 30)->default('In preparazione');
             //richiesta orario di consegna
-            $table->dateTime('delivery_time');
+            $table->time('delivery_time')->default(now());
 
 
             $table->timestamps();

@@ -8,6 +8,9 @@ use App\Http\Requests\UpdateorderRequest;
 use App\Models\Order;
 use App\Models\Plate;
 use App\Models\Restaurant;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
+
 
 
 
@@ -46,9 +49,39 @@ class OrderController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(StoreorderRequest $request)
-    {
-        //
+{
+    DB::beginTransaction();
+
+    try {
+        Log::info('Dati ricevuti per l\'ordine: ', $request->all());
+
+        // Salva il nuovo ordine
+        $order = new Order();
+        $order->restaurant_id = $request->restaurant_id;
+        $order->name = $request->name;
+        $order->surname = $request->surname;
+        $order->email_address = $request->email_address;
+        $order->delivery_address = $request->delivery_address;
+        $order->delivery_time = $request->delivery_time;
+        $order->note = $request->note;
+        $order->total_price = $request->total_price;
+        $order->save();
+
+        // Popola la tabella pivot plate_order
+        foreach ($request->plates as $plate) {
+            $order->plates()->attach($plate['plate_id'], ['quantity' => $plate['quantity']]);
+        }
+
+        DB::commit();
+
+        return response()->json(['success' => true, 'message' => 'Ordine salvato con successo']);
+    } catch (\Exception $e) {
+        DB::rollBack();
+        Log::error('Errore nel salvataggio dell\'ordine: ' . $e->getMessage());
+        return response()->json(['success' => false, 'message' => 'Errore nel salvataggio dell\'ordine']);
     }
+}
+
 
     /**
      * Display the specified resource.

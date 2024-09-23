@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::table('orders', function (Blueprint $table) {
             // Aggiunge la colonna note alla tabella orders
             $table->text('note')->nullable()->after('email_address');
-            $table->string('slug', 100)->after('total_price');
+            $table->string('slug', 100)->nullable()->after('total_price');
         });
     }
 

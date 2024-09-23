@@ -6,23 +6,24 @@ use Illuminate\Foundation\Http\FormRequest;
 
 class StoreorderRequest extends FormRequest
 {
-    /**
-     * Determine if the user is authorized to make this request.
-     */
-    public function authorize(): bool
+    public function authorize()
     {
         return true;
     }
 
-    /**
-     * Get the validation rules that apply to the request.
-     *
-     * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
-     */
-    public function rules(): array
+    public function rules()
     {
         return [
-            //
+            'name' => 'required|string|max:50',
+            'surname' => 'required|string|max:50',
+            'email_address' => 'required|email|max:50',
+            'delivery_address' => 'required|string|max:50',
+            'delivery_time' => 'required||date_format:H:i',
+            'total_price' => 'required|numeric|min:0',
+            'note' => 'nullable|string',
+            'plates' => 'required|array',
+            'plates.*.plate_id' => 'required|exists:plates,id',
+            'plates.*.quantity' => 'required|integer|min:1',
         ];
     }
 }
