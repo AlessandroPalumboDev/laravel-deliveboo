@@ -18,9 +18,9 @@ class UsersTableSeeder extends Seeder
         DB::table('users')->truncate(); 
 
         $users = [
-            ['name' => 'Adminuno', 'surname' => 'User', 'email' => 'admin1@example.com', 'p_iva' => '11111111111'],
-            ['name' => 'Admindue', 'surname' => 'User', 'email' => 'admin2@example.com', 'p_iva' => '22222222222'],
-            ['name' => 'Admintre', 'surname' => 'User', 'email' => 'admin3@example.com', 'p_iva' => '33333333333'],
+            ['name' => 'Mc', 'surname' => 'donald', 'email' => 'mcdonald@example.com', 'p_iva' => '11111111111'],
+            ['name' => 'La', 'surname' => 'Napoli', 'email' => 'lanapoli@example.com', 'p_iva' => '22222222222'],
+            ['name' => 'Il', 'surname' => 'Carbonaro', 'email' => 'ilcarbonaro@example.com', 'p_iva' => '33333333333'],
             ['name' => 'Sakura', 'surname' => 'Owner', 'email' => 'sakura@example.com', 'p_iva' => '44444444444'],
             ['name' => 'Ramen', 'surname' => 'Master', 'email' => 'ramen@example.com', 'p_iva' => '55555555555'],
             ['name' => 'Teppanyaki', 'surname' => 'Chef', 'email' => 'teppanyaki@example.com', 'p_iva' => '66666666666'],
