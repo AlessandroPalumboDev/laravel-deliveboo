@@ -20,7 +20,7 @@ class RestaurantsSeeder extends Seeder
         DB::table('restaurants')->truncate();
 
         $restaurants = [
-            ['name' => "mc donald's", 'address' => 'Via Roma, 10', 'image_path' => 'uploads/mcdonalds.jpeg'],
+            ['name' => "mc donald's", 'address' => 'Via Roma, 10', 'image_path' => 'uploads/mcdonalds.png'],
             ['name' => 'la napoli', 'address' => 'Via Napoli, 25', 'image_path' => 'uploads/restaurant.jpeg'],
             ['name' => 'il carbonaro', 'address' => 'Via Milano, 30', 'image_path' => 'uploads/restaurant.jpeg'],
             ['name' => 'Sakura Sushi', 'address' => 'Via Tokyo, 1', 'image_path' => 'uploads/giappo1.jpeg'],
