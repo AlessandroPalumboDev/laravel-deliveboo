@@ -24,6 +24,11 @@
                                 <input type="text" class="form-control border-orange" id="business_name"
                                     name="business_name" value="{{ old('business_name') }}" required />
                             </div>
+                            <div class='text-center text-danger mt-2 d-none' id="error-business_name">
+                                <span>
+                                    Campo Obbligatorio
+                                </span>
+                            </div>
 
                             <div class="mb-3">
                                 <label for="address" class="form-label">Indirizzo Ristorante <span class="text-danger">*</span></label>
@@ -33,6 +38,11 @@
                             <div id="errore-indirizzo" class="d-none text-danger ">
                                 <span>
                                     Indirizzo già occupato da un altro ristorante
+                                </span>
+                            </div>
+                            <div id="errore-indirizzo!" class="d-none text-danger ">
+                                <span>
+                                    Campo Obbligatorio
                                 </span>
                             </div>
 
@@ -51,6 +61,11 @@
                                                 <label class="form-check-label" for="type-{{ $type->id }}">{{ $type->name }}</label>
                                             </div>
                                         @endforeach
+                                    </div>
+                                    <div id="errore-tipologie" class="invalid-feedback d-none">
+                                        <span>
+                                            Devi selezionare almeno una tipologia.
+                                        </span>
                                     </div>
 
                                     <!-- Mostra messaggio di errore se nessuna checkbox è selezionata -->

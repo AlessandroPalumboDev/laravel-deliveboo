@@ -182,6 +182,4 @@ Risposta:
 }
 ```
 
-3 - in crea ristorante -> validazioni front-end per tutto
-
 5 - in crea piatto -> gestire le validazioni sempre da front-end
