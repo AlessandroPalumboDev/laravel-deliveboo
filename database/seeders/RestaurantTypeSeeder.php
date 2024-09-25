@@ -15,14 +15,14 @@ class RestaurantTypeSeeder extends Seeder
     {
         Schema::disableForeignKeyConstraints();
 
-        // Existing associations
-        $existingAssociations = [
-            [1, [1, 2, 3, 4]],
-            [2, [4, 5, 6, 7]],
-            [3, [7, 8, 9, 1]],
+        // Specific associations
+        $customAssociations = [
+            [1, [11]],    
+            [2, [1, 2]],  
+            [3, [1]],    
         ];
 
-        foreach ($existingAssociations as [$restaurantId, $typeIds]) {
+        foreach ($customAssociations as [$restaurantId, $typeIds]) {
             foreach ($typeIds as $typeId) {
                 RestaurantType::create([
                     'restaurant_id' => $restaurantId,
@@ -31,9 +31,9 @@ class RestaurantTypeSeeder extends Seeder
             }
         }
 
-        // New Japanese restaurants (IDs 4 to 13)
-        $japaneseTypeId = 4; // Assuming Japanese cuisine type ID is 4
-        $sushiTypeId = 7; // Assuming Sushi type ID is 7
+        
+        $japaneseTypeId = 4; 
+        $sushiTypeId = 7; 
 
         for ($restaurantId = 4; $restaurantId <= 13; $restaurantId++) {
             RestaurantType::create([
@@ -41,13 +41,10 @@ class RestaurantTypeSeeder extends Seeder
                 'type_id' => $japaneseTypeId,
             ]);
 
-            // Optionally add Sushi type to some restaurants
-            if (in_array($restaurantId, [4, 5, 8, 11])) {
-                RestaurantType::create([
-                    'restaurant_id' => $restaurantId,
-                    'type_id' => $sushiTypeId,
-                ]);
-            }
+            RestaurantType::create([
+                'restaurant_id' => $restaurantId,
+                'type_id' => $sushiTypeId,
+            ]);
         }
 
         Schema::enableForeignKeyConstraints();
