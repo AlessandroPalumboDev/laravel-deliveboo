@@ -31,6 +31,9 @@
                                             <strong>{{ $message }}</strong>
                                         </span>
                                     @enderror
+                                    <div class='text-center text-danger mt-2 d-none' id="error-name">
+                                        Campo Obbligatorio
+                                    </div>
                                 </div>
                             </div>
 
@@ -50,6 +53,9 @@
                                             <strong>{{ $message }}</strong>
                                         </span>
                                     @enderror
+                                    <div class='text-center text-danger mt-2 d-none' id="error-surname">
+                                        Campo Obbligatorio
+                                    </div>
                                 </div>
                             </div>
 
@@ -68,6 +74,9 @@
                                             <strong>{{ $message }}</strong>
                                         </span>
                                     @enderror
+                                    <div class='text-center text-danger mt-2 d-none' id="error-email">
+                                        Devi inserire un indirizzo e-mail Valido
+                                    </div>
                                 </div>
                             </div>
 

@@ -181,5 +181,3 @@ Risposta:
     ]
 }
 ```
-
-Grazie per aver utilizzato la nostra API! Speriamo che la trovi utile e facile da integrare nella tua applicazione frontend.

@@ -23,6 +23,9 @@
                                 <input type="text" class="form-control border-orange" id="name" name="name"
                                     value="{{ old('name', $plate->name) }}" required />
                             </div>
+                            <div class='text-center text-danger mt-2 d-none' id="error-name">
+                                Campo Obbligatorio
+                            </div>
 
                             <div class="mb-3">
                                 <label for="description" class="form-label ">Descrizione</label>
@@ -38,7 +41,7 @@
                                     {{-- messaggio di errore --}}
                                     <div id="errore-ingredienti" class="d-none text-danger text-center">
                                         <span>
-                                            Il campo non può essere vuoto
+                                            Campo Obbligatorio
                                         </span>
                                     </div>
                             </div>
@@ -48,6 +51,11 @@
                                         class="text-danger">*</span></label>
                                 <input type="number" class="form-control border-orange" id="price" name="price"
                                     value="{{ old('price', $plate->price) }}" required step="0.01" min="0" />
+                            </div>
+                            <div id="errore-price" class="d-none text-danger text-center">
+                                <span>
+                                    Campo Obbligatorio
+                                </span>
                             </div>
 
                             <div class="d-flex gap-4 mb-3 flex-wrap">

@@ -22,12 +22,12 @@
 
                                 <div class="col-md-8 my-3 ms-3">
                                     <!-- Titoli Arancioni -->
-                                    <h4 class="card-title orange">{{ $restaurant->business_name }}</h4>
-                                    <p class="card-text "><span class="orange">Indirizzo:</span> {{ $restaurant->address }}
+                                    <h4 class="card-title orange text-capitalize">{{ $restaurant->business_name }}</h4>
+                                    <p class="card-text text-capitalize"><span class="orange">Indirizzo:</span> {{ $restaurant->address }}
                                     </p>
 
                                     @foreach ($users as $user)
-                                        <p class="card-text"><span class="orange">Proprietario:</span>
+                                        <p class="card-text text-capitalize"><span class="orange">Proprietario:</span>
                                             <strong>{{ $user->name }}
                                                 {{ $user->surname }}</strong>
                                         </p>

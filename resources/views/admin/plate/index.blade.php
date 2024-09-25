@@ -79,10 +79,10 @@
                         </div>
                     @endforeach
                 @else
-                    <div class="alert alert-warning text-center">
+                    <div class="alert alert-warning text-center bg-orange-light border-0">
                         <h4 class="alert-heading">Non hai ancora creato nessun piatto!</h4>
                         <p>Clicca qui sotto per creare subito un piatto e iniziare a vendere.</p>
-                        <a href="{{ route('admin.Plates.create') }}" class="btn btn-primary">Crea un Piatto</a>
+                        <a href="{{ route('admin.Plates.create') }}" class="btn btn-outline-brown">Crea un Piatto</a>
                     </div>
                 @endif
             </div>
