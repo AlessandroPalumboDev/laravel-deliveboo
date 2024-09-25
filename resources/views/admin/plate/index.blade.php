@@ -13,7 +13,7 @@
                             piatto</a>
                     </div>
                     @foreach ($plates as $plate)
-                        <div class="card mb-4 shadow-lg bg-dark-light text-light rounded-3">
+                        <div class="card mt-3 mb-5 shadow-lg bg-dark-light text-light rounded-3">
 
                             <div class="card-header card-header-orange text-brown">
                                 <h3 class="mb-0 text-capitalize">{{ $plate->name }}</h3>
