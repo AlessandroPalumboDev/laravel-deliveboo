@@ -6,16 +6,18 @@
             <div class="col-lg-8">
                 <div class="card shadow-lg bg-dark-light text-light rounded-3">
                     <div class="card-header card-header-orange text-brown text-center">
-                        <h1 class="mb-0">{{ $plate->name }}</h1>
+                        <h1 class="mb-0 text-capitalize">{{ $plate->name }}</h1>
                     </div>
                     <div class="card-body">
-                        <img src="{{ asset('storage/' . $plate->cover_image) }}" class="img-fluid mb-4"
-                            alt="Immagine del piatto">
-                        <h4 class="orange">Descrizione:</h4>
+                        <div class="d-flex justify-content-center mb-3">
+                            <img src="{{ asset('storage/' . $plate->cover_image) }}" class="img-fluid my-4" style="max-height: 300px"
+                                alt="Immagine del piatto">
+                        </div>
+                        <h4 class="orange text-capitalize">Descrizione:</h4>
                         <p>{{ $plate->description }}</p>
 
-                        <h4 class="orange">Ingredienti:</h4>
-                        <p>{{ $plate->ingredients }}</p>
+                        <h4 class="orange text-capitalize">Ingredienti:</h4>
+                        <p class="text-capitalize">{{ $plate->ingredients }}</p>
 
                         <h4 class="orange">Prezzo:</h4>
                         <p>{{ $plate->price }} €</p>

@@ -16,7 +16,7 @@
                         <div class="card mb-4 shadow-lg bg-dark-light text-light rounded-3">
 
                             <div class="card-header card-header-orange text-brown">
-                                <h3 class="mb-0">{{ $plate->name }}</h3>
+                                <h3 class="mb-0 text-capitalize">{{ $plate->name }}</h3>
                             </div>
 
                             <div class="card-body d-flex g-0">
@@ -27,9 +27,9 @@
                                 </div>
 
                                 <div class="col-md-8 my-3 ms-3">
-                                    <p class="card-text "><span class="orange">Descrizione:</span> {{ $plate->description }}</p>
-                                    <p class="card-text"><span class="orange">Ingredienti:</span> {{ $plate->ingredients }}</></p>
-                                    <p class="card-text"><span class="orange">Prezzo:</span> €{{ number_format($plate->price, 2) }}</p>
+                                    <p class="card-text text-capitalize "><span class="orange">Descrizione:</span> {{ $plate->description }}</p>
+                                    <p class="card-text text-capitalize"><span class="orange">Ingredienti:</span> {{ $plate->ingredients }}</></p>
+                                    <p class="card-text text-capitalize"><span class="orange">Prezzo:</span> €{{ number_format($plate->price, 2) }}</p>
                                     <div class="d-flex gap-3">
                                         <a href="{{ route('admin.Plates.edit', $plate) }}"
                                             class="btn btn-outline-orange">Modifica</a>

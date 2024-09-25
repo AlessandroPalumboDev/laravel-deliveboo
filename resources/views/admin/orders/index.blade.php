@@ -35,7 +35,7 @@
                                 <td class="d-none d-md-table-cell">{{ $order->surname }}</td>
                                 <td class="d-none d-md-table-cell">{{ $order->delivery_address }}</td>
                                 <td>{{ $order->total_price }}</td>
-                                <td><span class="badge bg-success">{{ $order->order_status }}</span></td>
+                                <td><span class="badge ">{{ $order->order_status }}</span></td>
                                 <td>
                                     <a href="{{ route('admin.orders.show', $order->id) }}"
                                         class="btn btn-outline-orange btn-sm">Dettagli Ordine</a>
