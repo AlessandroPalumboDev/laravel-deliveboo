@@ -181,5 +181,3 @@ Risposta:
     ]
 }
 ```
-
-5 - in crea piatto -> gestire le validazioni sempre da front-end
