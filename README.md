@@ -182,4 +182,6 @@ Risposta:
 }
 ```
 
-Grazie per aver utilizzato la nostra API! Speriamo che la trovi utile e facile da integrare nella tua applicazione frontend.
+3 - in crea ristorante -> validazioni front-end per tutto
+
+5 - in crea piatto -> gestire le validazioni sempre da front-end
