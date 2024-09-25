@@ -13,7 +13,7 @@
                             piatto</a>
                     </div>
                     @foreach ($plates as $plate)
-                        <div class="card mb-4 shadow-lg bg-dark-light text-light rounded-3">
+                        <div class="card mt-3 mb-5 shadow-lg bg-dark-light text-light rounded-3">
 
                             <div class="card-header card-header-orange text-brown">
                                 <h3 class="mb-0 text-capitalize">{{ $plate->name }}</h3>
@@ -80,10 +80,10 @@
                         </div>
                     @endforeach
                 @else
-                    <div class="alert alert-warning text-center bg-orange-light border-0">
+                    <div class="alert alert-warning text-center bg-dark-light text-light border-0">
                         <h4 class="alert-heading">Non hai ancora creato nessun piatto!</h4>
                         <p>Clicca qui sotto per creare subito un piatto e iniziare a vendere.</p>
-                        <a href="{{ route('admin.Plates.create') }}" class="btn btn-outline-brown">Crea un Piatto</a>
+                        <a href="{{ route('admin.Plates.create') }}" class="btn btn-outline-orange">Crea un Piatto</a>
                     </div>
                 @endif
             </div>

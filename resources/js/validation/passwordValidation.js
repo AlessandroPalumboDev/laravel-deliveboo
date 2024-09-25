@@ -25,6 +25,8 @@ sub_verify.addEventListener("click", function (event) {
     event.preventDefault();
 
     const p_iva = document.getElementById("p_iva");
+    const p_iva_value = p_iva.value;
+    const isNumeric = /^\d+$/.test(p_iva_value);
 
     const val1 = document.getElementById("password").value;
     const val1_color = document.getElementById("password");
@@ -53,7 +55,7 @@ sub_verify.addEventListener("click", function (event) {
         email_color.classList.add("border-danger");
         error_email.classList.remove("d-none");
         error_email.classList.add("d-block");
-    } else if (p_iva.value.length !== 11) {
+    } else if (!isNumeric || p_iva.value.length !== 11) {
         error_message_p_iva.classList.remove("d-none");
         error_message_p_iva.classList.add("d-block");
         p_iva.classList.add("border-danger");
