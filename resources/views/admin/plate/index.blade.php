@@ -27,8 +27,9 @@
                                 </div>
 
                                 <div class="col-md-8 my-3 ms-3">
-                                    <p class="card-text text-capitalize "><span class="orange">Descrizione:</span> {{ $plate->description }}</p>
-                                    <p class="card-text text-capitalize"><span class="orange">Ingredienti:</span> {{ $plate->ingredients }}</></p>
+                                    <span class="orange">Descrizione:</span>
+                                    <p class="card-text text-capitalize "> {{ $plate->description }}</p>
+                                    {{-- <p class="card-text text-capitalize"><span class="orange">Ingredienti:</span> {{ $plate->ingredients }}</></p> --}}
                                     <p class="card-text text-capitalize"><span class="orange">Prezzo:</span> €{{ number_format($plate->price, 2) }}</p>
                                     <div class="d-flex gap-3">
                                         <a href="{{ route('admin.Plates.edit', $plate) }}"
