@@ -55,7 +55,7 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
-                        @guest
+                        {{-- @guest
                             <li class="nav-item">
                                 <a class="nav-link text-brown" href="{{ route('login') }}">{{ __('Accedi') }}</a>
                             </li>
@@ -65,7 +65,9 @@
                                         href="{{ route('register') }}">{{ __('Registrati') }}</a>
                                 </li>
                             @endif
-                        @else
+                        @else --}}
+                        @auth
+                            
                             <li class="nav-item dropdown ">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle text-brown" href="#"
                                     role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
@@ -89,7 +91,9 @@
                                     </form>
                                 </div>
                             </li>
-                        @endguest
+                        @endauth
+
+                        {{-- @endguest --}}
                     </ul>
                 </div>
             </div>
