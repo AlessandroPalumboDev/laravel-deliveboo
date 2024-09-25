@@ -97,7 +97,7 @@
                                         </span>
                                     @enderror
                                     <div class='text-center text-danger mt-2 d-none' id="error-message-p-iva">
-                                        Il codice della partita Iva deve essere di 11 cifre
+                                        Il codice della partita Iva deve essere di 11 cifre e può contenere solo numeri
                                     </div>
                                 </div>
                             </div>
