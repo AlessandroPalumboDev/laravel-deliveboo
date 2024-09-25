@@ -21,7 +21,7 @@ class RestaurantsSeeder extends Seeder
 
         $restaurants = [
             ['name' => "mc donald's", 'address' => 'Via Roma, 10', 'image_path' => 'uploads/mcdonalds.png'],
-            ['name' => 'la napoli', 'address' => 'Via Napoli, 25', 'image_path' => 'uploads/restaurant.jpeg'],
+            ['name' => 'la napoli', 'address' => 'Via Napoli, 25', 'image_path' => 'uploads/lanapoli2.jpeg'],
             ['name' => 'il carbonaro', 'address' => 'Via Milano, 30', 'image_path' => 'uploads/restaurant.jpeg'],
             ['name' => 'Sakura Sushi', 'address' => 'Via Tokyo, 1', 'image_path' => 'uploads/giappo1.jpeg'],
             ['name' => 'Ramen House', 'address' => 'Corso Osaka, 15', 'image_path' => 'uploads/giappo2.jpeg'],
